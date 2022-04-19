@@ -11,6 +11,10 @@
 		7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F245E18276AD8C5003D7514 /* ContentView.swift */; };
 		7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1A276AD8C7003D7514 /* Assets.xcassets */; };
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
+		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
+		7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABDCFB27E421E200375941 /* HomeScreen.swift */; };
+		7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC961B82778FF2100ECCAEC /* HomePageView.swift */; };
+		A2328E6227F68491002A79A9 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2328E6127F68491002A79A9 /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		7F245E18276AD8C5003D7514 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F245E1A276AD8C7003D7514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		7FABDCFB27E421E200375941 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		7FC961B82778FF2100ECCAEC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		A2328E6127F68491002A79A9 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 			children = (
 				7F245E16276AD8C5003D7514 /* Open_CribApp.swift */,
 				7F245E18276AD8C5003D7514 /* ContentView.swift */,
+				7FABDCFB27E421E200375941 /* HomeScreen.swift */,
+				7F5FC8C0276BA161005A919C /* SignUpView.swift */,
+				A2328E6127F68491002A79A9 /* Feed.swift */,
+				7FC961B82778FF2100ECCAEC /* HomePageView.swift */,
 				7F245E1A276AD8C7003D7514 /* Assets.xcassets */,
 				7F245E1C276AD8C7003D7514 /* Preview Content */,
 			);
@@ -138,6 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */,
+				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
+				7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */,
+				7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */,
+				7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */,
 				7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +288,7 @@
 				DEVELOPMENT_TEAM = W96B85P6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +318,7 @@
 				DEVELOPMENT_TEAM = W96B85P6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

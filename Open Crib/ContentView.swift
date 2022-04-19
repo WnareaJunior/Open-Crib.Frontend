@@ -15,6 +15,7 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 HomescreenView()
+                Text("lol")
             }
         }
         .accentColor(Color("cribCyan"))

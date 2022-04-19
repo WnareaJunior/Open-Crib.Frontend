@@ -85,7 +85,7 @@ struct HomescreenView: View {
                     }
                     Spacer()
                     HStack{
-                        Text("Have an account already? ")
+                        Text("What are you waiting for? kys :)")
                             .foregroundColor(.white)
                             .font(.system(size: 18))
                         Button{

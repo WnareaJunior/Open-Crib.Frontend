@@ -18,6 +18,8 @@ struct HomePageView: View {
             .accentColor(Color("cribGray"))
             .onAppear{
                 viewModel.checkIfLocationServicesIsEnabled()
+                
+                
             }
         
     
@@ -26,25 +28,20 @@ struct HomePageView: View {
 }
 
 
-struct HomePageView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            HomePageView()
-        }
-    }
-}
+
 
 final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
     
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:25.752575,longitude:-80.360717), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:25.000000,longitude:-80.000000),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
-    @Published var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager?
     
     func checkIfLocationServicesIsEnabled(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager = CLLocationManager()
-            locationManager!.delegate = self
-//            locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager!.delegate = self//What does this do O_o
+
         }else{
             print("turn on location!")
         }
@@ -58,12 +55,20 @@ final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDeleg
     case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
     case .restricted:
-        print("kys")
+        print("restricted")
     case .denied:
-        print("change permission headass")
+        print("change permission")
     case .authorizedAlways, .authorizedWhenInUse:
-            print("kys")
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            if locationManager.location != nil{
+                region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                print("ayeee")
+            }
+            print("nah")
+//            print("nice")
+//            print(locationManager.location!.coordinate)
+//            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//            print("region set")
+//            print(locationManager.location!.coordinate)
     @unknown default:
         break
     }
@@ -71,5 +76,12 @@ final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDeleg
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
+    }
+}
+struct HomePageView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            HomePageView()
+        }
     }
 }

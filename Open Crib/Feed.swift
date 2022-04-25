@@ -12,7 +12,7 @@ import SwiftUI
 struct Feed: View {
     @State private var searchBar: String  = ""
     
-    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.85
+    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.50
     
     var cribPosts: [Post] = cribInfo.cribs
     var body: some View {

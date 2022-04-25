@@ -85,7 +85,7 @@ struct HomescreenView: View {
                     }
                     Spacer()
                     HStack{
-                        Text("What are you waiting for? kys :)")
+                        Text("Already a member?")
                             .foregroundColor(.white)
                             .font(.system(size: 18))
                         Button{
@@ -108,4 +108,11 @@ struct HomescreenView: View {
         }
     }
 
+}
+struct HomeScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            HomescreenView()
+        }
+    }
 }

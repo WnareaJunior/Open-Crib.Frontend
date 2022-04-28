@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "JkQMjNzRqLfM1n+fq9bXH+KJGJknYjVwlaDxQ5qaJM94UblinTQR1/OeKIOVEXnIv7KcNurIBKbLPf8wIsfjcA==",
+  "success": true,
+  "projectFilePath": "/Users/wnarea/CribAPI/CribAPI.csproj",
+  "expectedPackageFiles": [
+    "/Users/wnarea/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/wnarea/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/wnarea/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/wnarea/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/wnarea/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/wnarea/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

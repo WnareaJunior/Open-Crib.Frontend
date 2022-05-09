@@ -12,8 +12,6 @@ import SwiftUI
 struct Feed: View {
     @State private var searchBar: String  = ""
     
-    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.50
-    
     var cribPosts: [Post] = cribInfo.cribs
     var body: some View {
         
@@ -28,7 +26,7 @@ struct Feed: View {
             
             VStack(){
                 
-            TextField("    Search",text: $searchBar)
+                TextField("     Search",text: $searchBar)
                                         .frame(width: 350, height: 35)
                                         .background(.white)
                                         .cornerRadius(10)
@@ -51,11 +49,7 @@ struct Feed: View {
                     UITableView.appearance().backgroundColor = .clear
                 }
                 .ignoresSafeArea()
-                
-                
-
             }
-                            .offset(y: startingOffsetY)
                 
             
             

@@ -10,6 +10,9 @@ import SwiftUI
 struct HomePageView: View {
     @StateObject private var viewModel = ContentViewModel()
     @EnvironmentObject var appState: AppState
+//    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.50
+    @State var currentOffsetY: CGFloat = UIScreen.main.bounds.height * 0.80
+    
     
 //    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:25.752575,longitude:-80.360717), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
@@ -24,8 +27,11 @@ struct HomePageView: View {
                     
             
                 }
-            Feed()
-                .offset(y: 500)
+            Feed(currentDragOffsetY: self.$currentOffsetY)
+                .offset(y:self.currentOffsetY)
+                
+                
+                
         }
         
         

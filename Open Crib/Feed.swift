@@ -9,16 +9,18 @@ import Foundation
 import SwiftUI
 
 
-struct Feed: View {
+struct Feed:  View {
     @State private var searchBar: String  = ""
     
-    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.50
+    @Binding var currentDragOffsetY: CGFloat
     
     var cribPosts: [Post] = cribInfo.cribs
+
     var body: some View {
         
         
         ZStack{
+            
             Color(.clear)
                 .cornerRadius(40)
                 .ignoresSafeArea()
@@ -40,7 +42,9 @@ struct Feed: View {
                     .scaledToFit()
                     .frame(width: 30, height: 40)
                 
-            TextField("    Search",text: $searchBar)
+                Text("\(self.currentDragOffsetY)")
+                
+                TextField("    Search",text: $searchBar)
                                         .frame(width: 350, height: 35)
                                         .background(.white)
                                         .cornerRadius(10)
@@ -74,6 +78,23 @@ struct Feed: View {
             }
             
         }
+        .gesture(
+            DragGesture()
+                .onChanged {value in
+                    withAnimation(.spring()) {
+                        currentDragOffsetY = value.translation.height
+                    }
+                }
+                .onEnded {value in
+                    withAnimation(.spring()) {
+                        if currentDragOffsetY < 400 {
+                            currentDragOffsetY = 50
+                        } else {
+                            currentDragOffsetY = UIScreen.main.bounds.height*0.80
+                        }
+                    }
+                }
+        )
         
         
     }
@@ -162,10 +183,10 @@ struct cribInfo {
     ]
     
 }
-struct Feed_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Feed()
-        }
-    }
-}
+////struct Feed_Previews: PreviewProvider {
+////    static var previews: some View {
+////        Group {
+////            Feed()
+////        }
+////    }
+//}

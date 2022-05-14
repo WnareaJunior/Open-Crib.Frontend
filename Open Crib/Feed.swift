@@ -9,24 +9,41 @@ import Foundation
 import SwiftUI
 
 
-struct Feed: View {
+struct Feed:  View {
     @State private var searchBar: String  = ""
     
+    @Binding var currentDragOffsetY: CGFloat
+    
     var cribPosts: [Post] = cribInfo.cribs
+
     var body: some View {
         
         
         ZStack{
-            Color.green
+            
+            Color(.clear)
+                .cornerRadius(40)
                 .ignoresSafeArea()
+           
+            
+               
             ZStack{
-            RoundedRectangle(cornerSize: .zero)
+                
+            RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
                 .fill(Color("cribGray"))
-                .ignoresSafeArea()
+                
+               
+                
             
             VStack(){
                 
-                TextField("     Search",text: $searchBar)
+                Image(systemName: "chevron.up")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 40)
+                
+                
+                TextField("    Search",text: $searchBar)
                                         .frame(width: 350, height: 35)
                                         .background(.white)
                                         .cornerRadius(10)
@@ -37,25 +54,46 @@ struct Feed: View {
 
                 
             
-                List(cribPosts,id: \.id) { post in
-                    CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
-                }
+            List(cribPosts,id: \.id) { post in
+                 CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
+            }
                 
                 .opacity(5.0)
-                .ignoresSafeArea()
+              
                 
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 24, trailing: 0))
                 .onAppear {
                     UITableView.appearance().backgroundColor = .clear
                 }
-                .ignoresSafeArea()
+                
+                
+                Spacer()
+
             }
+                            
                 
             
             
             }
             
         }
+        .gesture(
+            DragGesture()
+                .onChanged {value in
+                    withAnimation(.spring()) {
+                        currentDragOffsetY = value.translation.height
+                    }
+                }
+                .onEnded {value in
+                    withAnimation(.spring()) {
+                        if currentDragOffsetY < 400 {
+                            currentDragOffsetY = 50
+                        } else {
+                            currentDragOffsetY = UIScreen.main.bounds.height*0.80
+                        }
+                    }
+                }
+        )
         
         
     }
@@ -147,7 +185,7 @@ struct cribInfo {
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Feed()
+            Feed(currentDragOffsetY: HomePageView().$currentOffsetY)
         }
     }
 }

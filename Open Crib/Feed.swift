@@ -42,7 +42,6 @@ struct Feed:  View {
                     .scaledToFit()
                     .frame(width: 30, height: 40)
                 
-                Text("\(self.currentDragOffsetY)")
                 
                 TextField("    Search",text: $searchBar)
                                         .frame(width: 350, height: 35)
@@ -183,10 +182,10 @@ struct cribInfo {
     ]
     
 }
-////struct Feed_Previews: PreviewProvider {
-////    static var previews: some View {
-////        Group {
-////            Feed()
-////        }
-////    }
-//}
+struct Feed_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            Feed(currentDragOffsetY: HomePageView().$currentOffsetY)
+        }
+    }
+}

@@ -19,14 +19,26 @@ struct Feed: View {
         
         
         ZStack{
-            Color.green
+            Color(.clear)
+                .cornerRadius(40)
                 .ignoresSafeArea()
+           
+            
+               
             ZStack{
-            RoundedRectangle(cornerSize: .zero)
+                
+            RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
                 .fill(Color("cribGray"))
-                .ignoresSafeArea()
+                
+               
+                
             
             VStack(){
+                
+                Image(systemName: "chevron.up")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 40)
                 
             TextField("    Search",text: $searchBar)
                                         .frame(width: 350, height: 35)
@@ -39,23 +51,23 @@ struct Feed: View {
 
                 
             
-                List(cribPosts,id: \.id) { post in
-                    CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
-                }
+            List(cribPosts,id: \.id) { post in
+                 CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
+            }
                 
                 .opacity(5.0)
-                .ignoresSafeArea()
+              
                 
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 24, trailing: 0))
                 .onAppear {
                     UITableView.appearance().backgroundColor = .clear
                 }
-                .ignoresSafeArea()
                 
                 
+                Spacer()
 
             }
-                            .offset(y: startingOffsetY)
+                            
                 
             
             

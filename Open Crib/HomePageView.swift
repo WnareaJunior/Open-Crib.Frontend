@@ -12,18 +12,27 @@ struct HomePageView: View {
     @EnvironmentObject var appState: AppState
     
 //    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:25.752575,longitude:-80.360717), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    
     var body: some View{
-        Map(coordinateRegion: $viewModel.region,showsUserLocation: true)
-            .ignoresSafeArea()
-            .accentColor(Color("cribGray"))
-            .onAppear{
-                viewModel.checkIfLocationServicesIsEnabled()
-                
-                
-            }
+        
+        ZStack{
+            Map(coordinateRegion: $viewModel.region,showsUserLocation: true)
+                .ignoresSafeArea()
+                .accentColor(Color("cribGray"))
+                .onAppear{
+                    viewModel.checkIfLocationServicesIsEnabled()
+                    
+            
+                }
+            Feed()
+                .offset(y: 500)
+        }
+        
+        
         
     
-        
+    
+
     }
 }
 

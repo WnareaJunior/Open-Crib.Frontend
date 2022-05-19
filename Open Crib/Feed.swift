@@ -12,6 +12,9 @@ import SwiftUI
 struct Feed:  View {
     @State private var searchBar: String  = ""
     
+    @State private var String  = "test"
+    
+    
     @Binding var currentDragOffsetY: CGFloat
     
     var cribPosts: [Post] = cribInfo.cribs

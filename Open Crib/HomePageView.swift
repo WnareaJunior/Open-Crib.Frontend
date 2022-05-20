@@ -24,8 +24,6 @@ struct HomePageView: View {
                 .accentColor(Color("cribGray"))
                 .onAppear{
                     viewModel.checkIfLocationServicesIsEnabled()
-                    
-            
                 }
             Feed(currentDragOffsetY: self.$currentOffsetY)
                 .offset(y:self.currentOffsetY)

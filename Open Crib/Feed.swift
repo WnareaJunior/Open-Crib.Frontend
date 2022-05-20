@@ -11,72 +11,60 @@ import SwiftUI
 
 struct Feed:  View {
     @State private var searchBar: String  = ""
-    
-    @State private var String  = "test"
-    
-    
     @Binding var currentDragOffsetY: CGFloat
     
-    var cribPosts: [Post] = cribInfo.cribs
-
+    
     var body: some View {
         
         
         ZStack{
             
-            Color(.clear)
-                .cornerRadius(40)
-                .ignoresSafeArea()
-           
+//            Color(.clear)
+//                .cornerRadius(40)
+//                .ignoresSafeArea()
+            // No changes when above lines are commented so im gonna leave them like that
             
                
-            ZStack{
+                ZStack{
+                    
+                RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
+                    .fill(Color("cribGray"))
+                    .ignoresSafeArea()
+                Rectangle()
+                        .fill(Color("cribGray"))
+                        .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.maxY)
+                    
                 
-            RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
-                .fill(Color("cribGray"))
-                
-               
-                
-            
-            VStack(){
-                
-                Image(systemName: "chevron.up")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 40)
-                
-                
-                TextField("    Search",text: $searchBar)
-                                        .frame(width: 350, height: 35)
-                                        .background(.white)
-                                        .cornerRadius(10)
-                                        .textInputAutocapitalization(.never)
-                                        .font(.system(size: 12, design: .default))
-                                        .disableAutocorrection(true)
-                
+                VStack(){
+                    
+                    Image(systemName: "chevron.up")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 40)
+                    
+                    
+                    TextField("    Search",text: $searchBar)
+                                            .frame(width: 350, height: 35)
+                                            .background(.white)
+                                            .cornerRadius(10)
+                                            .textInputAutocapitalization(.never)
+                                            .font(.system(size: 12, design: .default))
+                                            .disableAutocorrection(true)
+                    
 
-                
-            
-            List(cribPosts,id: \.id) { post in
-                 CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
-            }
-                
-                .opacity(5.0)
-              
-                
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 24, trailing: 0))
-                .onAppear {
-                    UITableView.appearance().backgroundColor = .clear
-                }
-                
-                
-                Spacer()
-
-            }
+                    
+                        CribFeed()
+                            .opacity(5.0)
+                            .padding(EdgeInsets(top: 10, leading: 0, bottom: 24, trailing: 0))
+                            .onAppear {
+                                UITableView.appearance().backgroundColor = .clear
+//                                if currentDragOffsetY == UIScreen.main.bounds.height*0.80{
+//                                    UITableView.appearance().
+//                                }
                             
-                
-            
-            
+//                        Spacer()
+
+                }
             }
             
         }
@@ -99,6 +87,17 @@ struct Feed:  View {
         )
         
         
+    }
+}
+
+struct CribFeed: View{
+    var cribPosts: [Post] = cribInfo.cribs
+    
+    var body: some View{
+        List(cribPosts,id: \.id) { post in
+             CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
+        }
+                    
     }
 }
 
@@ -191,4 +190,5 @@ struct Feed_Previews: PreviewProvider {
             Feed(currentDragOffsetY: HomePageView().$currentOffsetY)
         }
     }
+}
 }

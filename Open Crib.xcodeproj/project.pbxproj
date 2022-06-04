@@ -13,10 +13,8 @@
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
 		7F54FC09282A0879008EB351 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F54FC08282A0879008EB351 /* Alamofire */; };
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
-		7F8F3CC92837566600FE5326 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CC82837566600FE5326 /* Service.swift */; };
 		7F8F3CCC2837583C00FE5326 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCB2837583C00FE5326 /* User.swift */; };
 		7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCD28375D2100FE5326 /* Party.swift */; };
-		7FA95916284300C0009C63D7 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA95915284300C0009C63D7 /* NetworkingClient.swift */; };
 		7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABDCFB27E421E200375941 /* HomeScreen.swift */; };
 		7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC961B82778FF2100ECCAEC /* HomePageView.swift */; };
 		A2328E6227F68491002A79A9 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2328E6127F68491002A79A9 /* Feed.swift */; };
@@ -29,10 +27,8 @@
 		7F245E1A276AD8C7003D7514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		7F8F3CC82837566600FE5326 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7F8F3CCB2837583C00FE5326 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F8F3CCD28375D2100FE5326 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
-		7FA95915284300C0009C63D7 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		7FABDCFB27E421E200375941 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7FC961B82778FF2100ECCAEC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		A2328E6127F68491002A79A9 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -78,8 +74,6 @@
 				7FC961B82778FF2100ECCAEC /* HomePageView.swift */,
 				7F245E1A276AD8C7003D7514 /* Assets.xcassets */,
 				7F245E1C276AD8C7003D7514 /* Preview Content */,
-				7F8F3CC82837566600FE5326 /* Service.swift */,
-				7FA95915284300C0009C63D7 /* NetworkingClient.swift */,
 			);
 			path = "Open Crib";
 			sourceTree = "<group>";
@@ -180,11 +174,9 @@
 			files = (
 				7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */,
 				7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */,
-				7F8F3CC92837566600FE5326 /* Service.swift in Sources */,
 				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
 				7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */,
 				7F8F3CCC2837583C00FE5326 /* User.swift in Sources */,
-				7FA95916284300C0009C63D7 /* NetworkingClient.swift in Sources */,
 				7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */,
 				7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */,
 				7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */,

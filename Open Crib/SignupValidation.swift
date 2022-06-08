@@ -7,24 +7,34 @@
 
 import Foundation
 
-struct validation {
+class Validation: ObservableObject {
+
     
-    var passwordsDoNotMatch: Bool
-    var passwordTooShort: Bool
-    
-    mutating func SignupVal(password: String,password2: String,DOB: Date) -> Bool {
+    func passwordValidation(password: String,password2: String) -> Bool {
          var validation = true
         if !(password.elementsEqual(password2)) {
             validation = false
-            passwordsDoNotMatch = true
+            
         }
-        if !(password.count >= 8){
+        if !(password.count >= 8 && password.count <= 30){
             validation = false
-            passwordTooShort = true
+          
         }
-        
+        print("\(password) : \(password2)")
+        print("password validation: \(validation)")
         return validation
+        
     }
+   
+    
+    func ageValidation(DOB: Date) -> Bool {
+        if DOB.timeIntervalSinceReferenceDate>99{
+            return false
+        }
+        else {return true}
+    }
+    
+    
     
 }
 

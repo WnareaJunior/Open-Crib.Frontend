@@ -11,6 +11,7 @@ import SwiftUI
 struct SignUpView: View {
   
     @EnvironmentObject var appState: AppState
+    @StateObject private var valObj = Validation()
     @State private var usernameInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
@@ -57,11 +58,13 @@ struct SignUpView: View {
                         .frame(width: 240, height: 35)
                     
                     Button(action: {
-                        if passwordInput == secondPasswordInput{
+                        
+                        if valObj.passwordValidation(password: passwordInput, password2: secondPasswordInput) 
+                        {
                             appState.hasOnboarded = true
                         } else {
                             print("try again")
-                            passwordAlert = "Passwords do not match"
+                            passwordAlert = "Incorrect Input"
                             
                         }
                         

@@ -8,7 +8,7 @@ import MapKit
 import SwiftUI
 
 struct HomePageView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    @StateObject private var mapModel = ContentViewModel()
     @EnvironmentObject var appState: AppState
 //    @State var startingOffsetY: CGFloat = UIScreen.main.bounds.height * 0.50
     @State var currentOffsetY: CGFloat = UIScreen.main.bounds.height * 0.80
@@ -19,11 +19,11 @@ struct HomePageView: View {
     var body: some View{
         
         ZStack{
-            Map(coordinateRegion: $viewModel.region,showsUserLocation: true)
+            Map(coordinateRegion: $mapModel.region,showsUserLocation: true)
                 .ignoresSafeArea()
                 .accentColor(Color("cribGray"))
                 .onAppear{
-                    viewModel.checkIfLocationServicesIsEnabled()
+                    mapModel.checkIfLocationServicesIsEnabled()
                 }
             Feed(currentDragOffsetY: self.$currentOffsetY)
                 .offset(y:self.currentOffsetY)
@@ -43,64 +43,6 @@ struct HomePageView: View {
 
 
 
-final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
-    
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:25.000000,longitude:-80.000000),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    
-    var locationManager: CLLocationManager?
-    
-    func checkIfLocationServicesIsEnabled(){
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self//What does this do
-            locationManager?.startUpdatingLocation()
-
-        }else{
-            print("turn on location!")
-        }
-    }
-    
-    private func checkLocationAuthorization(){
-        guard let locationManager = locationManager else {return}
-        
-        switch locationManager.authorizationStatus {
-
-    case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-    case .restricted:
-        print("restricted")
-    case .denied:
-        print("change permission")
-    case .authorizedAlways, .authorizedWhenInUse:
-            if let location = locationManager.location {
-                region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                print("ayeee")
-            } else {
-                print("nah")
-            }
-            
-//            print("nice")
-//            print(locationManager.location!.coordinate)
-//            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//            print("region set")
-//            print(locationManager.location!.coordinate)
-    @unknown default:
-        break
-    }
-}
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-        print("localauth called")
-    }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            print("we got it!")
-        }
-    }
-}
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+
 struct SignUpView: View {
+  
     @EnvironmentObject var appState: AppState
     @State private var usernameInput: String  = ""
     @State private var passwordInput: String  = ""

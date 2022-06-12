@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+
 struct SignUpView: View {
+  
     @EnvironmentObject var appState: AppState
+    @StateObject private var valObj = Validation()
     @State private var usernameInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
+    @State private var passwordAlert: String = " "
     @State var birthdate = Date()
     
     var body: some View{
@@ -39,6 +43,9 @@ struct SignUpView: View {
                         .font(.system(size: 12, design: .default))
                         .disableAutocorrection(true)
                         .padding(.bottom, 15)
+                    Text("\(passwordAlert)")
+                        .font(Font.system(size: 10,  design: .default))
+                        .foregroundColor(Color("cribCyan"))
                     TextField("  Password Again",text: $secondPasswordInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
@@ -52,7 +59,16 @@ struct SignUpView: View {
                     
                     Button(action: {
                         
-                        appState.hasOnboarded = true
+                        if valObj.passwordValidation(password: passwordInput, password2: secondPasswordInput) 
+                        {
+                            appState.hasOnboarded = true
+                        } else {
+                            print("try again")
+                            passwordAlert = "Incorrect Input"
+                            
+                        }
+                        
+                        
                         
 
                         

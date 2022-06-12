@@ -28,19 +28,46 @@ struct Feed:  View {
                 ZStack{
                     
                 RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
-                    .fill(Color("cribGray"))
+                    .fill(Color.cribGray)
                     .ignoresSafeArea()
                 Rectangle()
-                        .fill(Color("cribGray"))
+                        .fill(Color.cribGray)
                         .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.maxY)
                     
                 
                 VStack(){
                     
-                    Image(systemName: "chevron.up")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 40)
+                    HStack{
+                        Spacer()
+                        Image(systemName: "chevron.up")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 40)
+                            
+                        Spacer()
+                    }
+                    .background(Color.cribGray)
+                    .padding(.horizontal,30)
+                    .gesture(
+                        DragGesture()
+                            .onChanged {value in
+                                withAnimation(.spring()) {
+                                    currentDragOffsetY = value.translation.height
+                                }
+                            }
+                            .onEnded {value in
+                                withAnimation(.spring()) {
+                                    if currentDragOffsetY < 400 {
+                                        currentDragOffsetY = 50
+                                    } else {
+                                        currentDragOffsetY = UIScreen.main.bounds.height*0.80
+                                    }
+                                }
+                            }
+                    )
+                    
+                    
+                    
                     
                     
                     TextField("    Search",text: $searchBar)
@@ -55,7 +82,8 @@ struct Feed:  View {
                     
                         CribFeed()
                             .opacity(5.0)
-                            .padding(EdgeInsets(top: 10, leading: 0, bottom: 24, trailing: 0))
+                            .padding(.top,35)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
                             .onAppear {
                                 UITableView.appearance().backgroundColor = .clear
 //                                if currentDragOffsetY == UIScreen.main.bounds.height*0.80{
@@ -68,23 +96,23 @@ struct Feed:  View {
             }
             
         }
-        .gesture(
-            DragGesture()
-                .onChanged {value in
-                    withAnimation(.spring()) {
-                        currentDragOffsetY = value.translation.height
-                    }
-                }
-                .onEnded {value in
-                    withAnimation(.spring()) {
-                        if currentDragOffsetY < 400 {
-                            currentDragOffsetY = 50
-                        } else {
-                            currentDragOffsetY = UIScreen.main.bounds.height*0.80
-                        }
-                    }
-                }
-        )
+//        .gesture(
+//            DragGesture()
+//                .onChanged {value in
+//                    withAnimation(.spring()) {
+//                        currentDragOffsetY = value.translation.height
+//                    }
+//                }
+//                .onEnded {value in
+//                    withAnimation(.spring()) {
+//                        if currentDragOffsetY < 400 {
+//                            currentDragOffsetY = 50
+//                        } else {
+//                            currentDragOffsetY = UIScreen.main.bounds.height*0.80
+//                        }
+//                    }
+//                }
+//        )
         
         
     }
@@ -129,7 +157,7 @@ struct CribPost: View{
                     Text("by " + hostName)
                         
                     Text(dist.description + " miles away")
-                        .foregroundColor(Color("cribGray"))
+                        .foregroundColor(Color.cribGray)
                 }
             }
         }
@@ -192,3 +220,12 @@ struct Feed_Previews: PreviewProvider {
     }
 }
 }
+
+extension Color {
+    
+    static var cribGray: Color {
+        Color("cribGray")
+    }
+}
+
+

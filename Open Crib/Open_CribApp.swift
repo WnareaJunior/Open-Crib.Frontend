@@ -26,9 +26,9 @@ struct Open_CribApp: App {
                 HomePageView()
                     .environmentObject(appState)
             }else{
-            ContentView()
-                .environmentObject(appState)
-            }
+                ContentView()
+                    .environmentObject(appState)
+                }
     }
             
     }

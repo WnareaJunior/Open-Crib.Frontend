@@ -19,6 +19,10 @@
 		7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCD28375D2100FE5326 /* Party.swift */; };
 		7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABDCFB27E421E200375941 /* HomeScreen.swift */; };
 		7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC961B82778FF2100ECCAEC /* HomePageView.swift */; };
+		A216D7F728A3055F005659CA /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7F628A3055F005659CA /* PartyModel.swift */; };
+		A216D7F928A305C9005659CA /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7F828A305C9005659CA /* AddressModel.swift */; };
+		A216D7FB28A305E9005659CA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7FA28A305E9005659CA /* APIClient.swift */; };
+		A216D7FF28AC671C005659CA /* HostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7FE28AC671C005659CA /* HostScreen.swift */; };
 		A2328E6227F68491002A79A9 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2328E6127F68491002A79A9 /* Feed.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +39,10 @@
 		7F8F3CCD28375D2100FE5326 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		7FABDCFB27E421E200375941 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7FC961B82778FF2100ECCAEC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		A216D7F628A3055F005659CA /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
+		A216D7F828A305C9005659CA /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		A216D7FA28A305E9005659CA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A216D7FE28AC671C005659CA /* HostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostScreen.swift; sourceTree = "<group>"; };
 		A2328E6127F68491002A79A9 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +90,9 @@
 				7FABDCFB27E421E200375941 /* HomeScreen.swift */,
 				7F5FC8C0276BA161005A919C /* SignUpView.swift */,
 				A2328E6127F68491002A79A9 /* Feed.swift */,
+				A216D7FA28A305E9005659CA /* APIClient.swift */,
 				7FC961B82778FF2100ECCAEC /* HomePageView.swift */,
+				A216D7FE28AC671C005659CA /* HostScreen.swift */,
 				7F1A698E285105AE00DC36DD /* SignupValidation.swift */,
 				7F1A6991285108FA00DC36DD /* LocationManager.swift */,
 				7F1A6990285105B300DC36DD /* Service */,
@@ -105,6 +115,8 @@
 			children = (
 				7F8F3CCB2837583C00FE5326 /* User.swift */,
 				7F8F3CCD28375D2100FE5326 /* Party.swift */,
+				A216D7F628A3055F005659CA /* PartyModel.swift */,
+				A216D7F828A305C9005659CA /* AddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,9 +202,13 @@
 				7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */,
 				7F1A6992285108FA00DC36DD /* LocationManager.swift in Sources */,
 				7F1A698F285105AE00DC36DD /* SignupValidation.swift in Sources */,
+				A216D7F728A3055F005659CA /* PartyModel.swift in Sources */,
+				A216D7FF28AC671C005659CA /* HostScreen.swift in Sources */,
 				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
 				7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */,
 				7F8F3CCC2837583C00FE5326 /* User.swift in Sources */,
+				A216D7F928A305C9005659CA /* AddressModel.swift in Sources */,
+				A216D7FB28A305E9005659CA /* APIClient.swift in Sources */,
 				7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */,
 				7FC961B92778FF2100ECCAEC /* HomePageView.swift in Sources */,
 				7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */,

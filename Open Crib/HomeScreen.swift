@@ -16,17 +16,17 @@ struct HomescreenView: View {
         ZStack{
             
             
-            Color("cribGray")
+            Color("cribCyan")
                 .ignoresSafeArea()
             VStack{
                 VStack{
-                    Image(systemName: "trash.circle.fill")
+                    Image("cribIcon")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 250, height: 250)
                         
-                        .padding(.bottom,200)
+                        .padding(.bottom,20)
                     
                         
                 }
@@ -36,7 +36,8 @@ struct HomescreenView: View {
                     NavigationLink(destination: SignUpView(), label: {
                         Text("Sign Up")
                             .frame(width: 250, height: 50)
-                            .background(Color("cribCyan"))
+                            .background(Color("cribGray"))
+                            .foregroundColor(Color.white)
                             .cornerRadius(30)
                             .font(.system(size: 20,weight: .bold,design:.default)).foregroundColor(.black)
                         
@@ -56,18 +57,18 @@ struct HomescreenView: View {
                     HStack{
                         Button {
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("google").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         Button {
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("facebook").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         
@@ -75,10 +76,10 @@ struct HomescreenView: View {
                             
                             
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("instagram").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         
@@ -92,18 +93,12 @@ struct HomescreenView: View {
                             
                         } label:{
                             Text("Log in")
-                                .foregroundColor(Color("cribCyan"))
+                                .foregroundColor(Color("cribGray"))
                             
                         }
                     }
             }
-            
-            
-            
-            
-            
-                
-                
+   
             }
         }
     }
@@ -115,4 +110,8 @@ struct HomeScreen_Preview: PreviewProvider {
             HomescreenView()
         }
     }
+}
+
+extension Color {
+    
 }

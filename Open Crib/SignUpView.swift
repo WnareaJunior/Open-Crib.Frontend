@@ -75,6 +75,7 @@ struct SignUpView: View {
                     
                     Button(action: {
                             appState.hasOnboarded = true
+                        
                         }, label: {
                     Text("Sign Up")
                             .frame(width: 240, height: 39)

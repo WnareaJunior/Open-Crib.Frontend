@@ -9,7 +9,7 @@ import Foundation
 
 class APIClient {
     
-    let baseURL = "https://opencribapi20220716052945.azurewebsites.net/api/Party/GetPartiesNearby/33178/200"
+    let baseURL = "https://opencribapi20225.azurewebsites.net/api/Party/GetPartiesNearby/"
     
     static let shared = APIClient()
     

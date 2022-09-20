@@ -168,7 +168,7 @@ struct FakeFeed: View{
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Feed(currentDragOffsetY: HomePageView().$currentOffsetY)
+            Feed(currentDragOffsetY: DefaultHomePageView().$currentOffsetY)
         }
     }
 }

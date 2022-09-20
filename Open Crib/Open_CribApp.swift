@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 class AppState: ObservableObject {
     @Published var hasOnboarded: Bool
@@ -23,13 +24,16 @@ struct Open_CribApp: App {
         WindowGroup {
             
             if(appState.hasOnboarded){
-                HomePageView()
-                    .environmentObject(appState)
+               SupraView()
+                   
+            
+                    
+                
             }else{
                 ContentView()
                     .environmentObject(appState)
                 }
-    }
+        }
             
     }
 }

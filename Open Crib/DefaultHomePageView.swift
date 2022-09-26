@@ -20,6 +20,8 @@ struct DefaultHomePageView: View {
     var body: some View {
         
         ZStack{
+            Color.blue
+                .ignoresSafeArea()
             
             Map(coordinateRegion: $mapModel.region,showsUserLocation: true)
                 .ignoresSafeArea()

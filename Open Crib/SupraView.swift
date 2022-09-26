@@ -14,6 +14,7 @@ struct SupraView: View {
     
     var body: some View {
         MasterHomePageView(currentDragOffset: $SwipeThruViews)
+            .offset(x:self.SwipeThruViews)
     }
 }
 

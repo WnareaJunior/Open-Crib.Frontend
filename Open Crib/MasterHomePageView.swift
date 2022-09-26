@@ -17,31 +17,38 @@ struct MasterHomePageView: View {
    
     var body: some View {
         ZStack{
-            
-            HostScreen()
-                .offset(x:UIScreen.main.bounds.minX - UIScreen.main.bounds.width)
             DefaultHomePageView()
                 .offset(x:UIScreen.main.bounds.minX)
+            HostScreen()
+                .offset(x:UIScreen.main.bounds.minX - UIScreen.main.bounds.maxX)
             Profile()
-                .offset(x:UIScreen.main.bounds.minX + UIScreen.main.bounds.width)
+                .offset(x:UIScreen.main.bounds.minX + UIScreen.main.bounds.maxX)
+            Hitboxes()
         }
         .gesture(
             DragGesture()
                 .onChanged { value in
                     withAnimation(.default) {
-                        if (value.location.x > UIScreen.main.bounds.minX
-                            && value.location.x < 200){
+                       
+                        if (true){
+                            debugPrint("YOU ARE EXECCCC")
                             currentDragOffset = value.translation.width
+                            debugPrint(currentDragOffset)
                         }
 
                     }
                 }
                 .onEnded { value in
                     withAnimation(.default) {
-                        if currentDragOffset < UIScreen.main.bounds.minX {
-                            currentDragOffset = -400
+                        if currentDragOffset > 100 {
+                            currentDragOffset = UIScreen.main.bounds.width
+                            debugPrint(currentDragOffset)
+                        }
+                        else if currentDragOffset < -100 {
+                            currentDragOffset = -UIScreen.main.bounds.width
+                            debugPrint(currentDragOffset)
                         } else {
-                            currentDragOffset = UIScreen.main.bounds.minX + 40
+                            currentDragOffset = 0
                         }
                     }
                 }

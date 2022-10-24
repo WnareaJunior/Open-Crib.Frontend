@@ -23,6 +23,7 @@
 		A216D7F928A305C9005659CA /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7F828A305C9005659CA /* AddressModel.swift */; };
 		A216D7FB28A305E9005659CA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7FA28A305E9005659CA /* APIClient.swift */; };
 		A216D7FF28AC671C005659CA /* HostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216D7FE28AC671C005659CA /* HostScreen.swift */; };
+		A21F48CB29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21F48CA29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf */; };
 		A231381128D163F60039C944 /* MasterHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231381028D163F60039C944 /* MasterHomePageView.swift */; };
 		A231381328D948930039C944 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231381228D948930039C944 /* Profile.swift */; };
 		A231381528D94AD10039C944 /* SupraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231381428D94AD10039C944 /* SupraView.swift */; };
@@ -49,6 +50,8 @@
 		A216D7F828A305C9005659CA /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		A216D7FA28A305E9005659CA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A216D7FE28AC671C005659CA /* HostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostScreen.swift; sourceTree = "<group>"; };
+		A21F48C729062A97007899EF /* Open-Crib-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Open-Crib-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A21F48CA29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE TOMMY Bold_PERSONAL USE.otf"; sourceTree = "<group>"; };
 		A231381028D163F60039C944 /* MasterHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterHomePageView.swift; sourceTree = "<group>"; };
 		A231381228D948930039C944 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A231381428D94AD10039C944 /* SupraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupraView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		7F245E0A276AD8C5003D7514 = {
 			isa = PBXGroup;
 			children = (
+				A21F48C4290627CF007899EF /* Font */,
 				7F245E15276AD8C5003D7514 /* Open Crib */,
 				7F245E14276AD8C5003D7514 /* Products */,
 			);
@@ -96,6 +100,7 @@
 		7F245E15276AD8C5003D7514 /* Open Crib */ = {
 			isa = PBXGroup;
 			children = (
+				A21F48C729062A97007899EF /* Open-Crib-Info.plist */,
 				7F8F3CCA2837581E00FE5326 /* Model */,
 				7F245E16276AD8C5003D7514 /* Open_CribApp.swift */,
 				A250506C28DA7510008FFEBD /* Hitboxes.swift */,
@@ -137,6 +142,14 @@
 				A216D7F828A305C9005659CA /* AddressModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A21F48C4290627CF007899EF /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A21F48CA29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */,
+				A21F48CB29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf in Resources */,
 				7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +296,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = H3QA8QVQW6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -343,8 +360,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = H3QA8QVQW6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -376,6 +397,8 @@
 				DEVELOPMENT_TEAM = W96B85P6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"GENERATE_INFOPLIST_FILE[sdk=iphoneos*]" = YES;
+				INFOPLIST_FILE = "Open-Crib-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -406,6 +429,8 @@
 				DEVELOPMENT_TEAM = W96B85P6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"GENERATE_INFOPLIST_FILE[sdk=iphoneos*]" = YES;
+				INFOPLIST_FILE = "Open-Crib-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

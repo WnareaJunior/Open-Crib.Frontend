@@ -30,13 +30,13 @@ struct SignUpView: View {
                     Text("Find Out ")
                         .foregroundColor(Color.white)
                         .frame(width: 100, height: 50)
-                        .font(.system(size: 19))
+                        .font(Font.custom("MADETOMMY-Bold", size: 20))
                         .aspectRatio(contentMode: .fit)
                         .padding(.bottom, 30)
                     Text("What's The Play")
                             .foregroundColor(Color.white)
                             .frame(width: 200, height: 50)
-                            .font(.system(size: 28))
+                            .font(Font.custom("MADETOMMY-Bold", size: 25))
                             .aspectRatio(contentMode: .fit)
                             .padding(.bottom, 15)
                     }
@@ -46,7 +46,7 @@ struct SignUpView: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
                     TextField("  Password",text: $passwordInput)
@@ -54,7 +54,7 @@ struct SignUpView: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
 //                    Text("\(passwordAlert)")
@@ -65,13 +65,14 @@ struct SignUpView: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 15)
                     DatePicker("Birthdate", selection: $birthdate, displayedComponents: .date)
                         .frame(width: 240, height: 35)
                         .foregroundColor(Color.white)
                         .padding()
+                        .font(Font.custom("MADETOMMY-Bold", size: 20))
                     
                     Button(action: {
                             appState.hasOnboarded = true
@@ -82,6 +83,7 @@ struct SignUpView: View {
                             .foregroundColor(.black)
                             .background(Color("cribCyan"))
                             .cornerRadius(20)
+                            .font(Font.custom("MADETOMMY-Bold", size: 20))
                     })
                         
         

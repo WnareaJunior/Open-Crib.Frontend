@@ -12,7 +12,9 @@ struct HostScreen: View {
 
     @State private var partyNameInput: String  = ""
     @State private var tagsInput: String  = ""
+    @State private var tags: Array<String> = []
     @State private var inviteInput: String  = ""
+    @State private var addressInput: String  = ""
     @StateObject var vm = UserViewModel()
     @State private var userInput=[User]()
     @State private var date = Date()
@@ -30,17 +32,16 @@ struct HostScreen: View {
             VStack(){
                 Text("Host a Party!")
                     .foregroundColor(Color.white)
-                    .frame(maxWidth: .infinity)
-                    .font(.system(size: 30))
-                    .position(x: 200, y: 40)
-                    
+                    .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .top)
+                    .font(Font.custom("MADETOMMY-Bold", size: 30))
+                    .padding()
             }
-            VStack{
+            VStack(){
                 HStack{
                     Text("What?")
                         .foregroundColor(.white)
                         .frame(width: 100, height: 60, alignment: .top)
-                        .font(.system(size: 25))
+                        .font(Font.custom("MADETOMMY-Bold", size: 30))
                         
                         
                     TextField("  Party Name",text: $partyNameInput)
@@ -48,45 +49,63 @@ struct HostScreen: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 30))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
                 }
-                HStack{
-
-                    DropDown("lit","rave","house","art")
-                        .frame(width: 100, height: 40, alignment: .topTrailing
-                        )
+                VStack{
                     
-                    
-                    // either fix the drop down menu
-                    // or find a way to search for tags
-                    // .searchable is only used in navigation view
-                    // consult "Lists" tutorial in Swift folder
-                TextField("  Tags",text: $tagsInput)
-                    .frame(width: 240, height: 35)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .textInputAutocapitalization(.never)
-                    .font(.system(size: 12, design: .default))
-                    .disableAutocorrection(true)
-                    .padding(.bottom, 30)
-                    
+                    TextField("  Tags",text: $tagsInput)
+                        .frame(width: 350, height: 35)
+                        .background(.white)
+                        .cornerRadius(10)
+                        .textInputAutocapitalization(.never)
+                        .font(Font.custom("MADETOMMY-Bold", size: 20))
+                        .disableAutocorrection(true)
+                        .padding(.bottom, 30)
+                        .onSubmit {
+                            if(tags.count < 4){
+                                if(tagsInput.count < 22){
+                                    tags.append(tagsInput)
+                                }
+                            }
+                        }
+                        
+                        HStack{
+                            ForEach(tags, id: \.self){
+                                tag in
+                                Button(action: {
+                                    if let index = tags.firstIndex(of: tag) {
+                                        tags.remove(at: index)
+                                    }
+                                }) {
+                                    HStack {
+                                        Text(tag)
+                                            .font(Font.custom("MADETOMMY-Bold", size: 15))
+                                        Image(systemName: "xmark.circle")
+                                    }
+                                    .frame(width: 80, height: 40, alignment: .center)
+                                }
+                                
+                                .foregroundColor(.black)
+                                .background(Color.white)
+                                .cornerRadius(.infinity)
+                            }
+                        }
                 }
                 HStack{
                     Text("Where?")
                         .foregroundColor(.white)
-                        .frame(width: 100, height: 60, alignment: .top)
-                        .font(.system(size: 25))
+                        .frame(width: 100, height: 60, alignment: .center)
+                        .font(Font.custom("MADETOMMY-Bold", size: 30))
                         .aspectRatio(contentMode: .fit)
-                    TextField("  Address",text: $tagsInput)
+                    TextField("  Address",text: $addressInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
-                        .padding(.bottom, 30)
                 }
 //                HStack{
 //
@@ -107,31 +126,44 @@ struct HostScreen: View {
 //                }.onAppear {
 //                    userInput  = vm.data
 //                }
-
                 HStack{
                     Text("When?")
                         .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .frame(width: 120, height: 50, alignment: .leading)
+                        .font(Font.custom("MADETOMMY-Bold", size: 30))
+                        .frame(width: 120, height: 30, alignment: .leading)
                     
                     DatePicker("", selection: $date)
                         .datePickerStyle(.automatic)
                         .frame(width: 200, height: 30, alignment: .trailing)
                     
                 }
-            }.position(x: 200, y: 230)
+                .padding(.vertical, 15)
+                HStack{
+                    Toggle(isOn: $isPrivate, label: {
+                        Text("Private?")
+                            .foregroundColor(.white)
+                            .font(Font.custom("MADETOMMY-Bold", size: 25))
+                            .frame(width: 120, height: 50, alignment: .leading)
+                    })
+                        .toggleStyle(SwitchToggleStyle(tint: (Color("cribCyan"))))
+                        .padding(.horizontal, 30)
+                        
+                }
+            }.position(x: UIScreen.main.bounds.maxX/2, y: 250)
+            
             HStack{
-                Toggle(isOn: $isPrivate, label: {
-                    Text("Private?")
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .frame(width: 120, height: 50, alignment: .leading)
-                })
-                    .toggleStyle(SwitchToggleStyle(tint: (Color("cribCyan"))))
-                    .padding(.horizontal, 35)
-                    .padding(.top, 70)
-            }
-        }
+                Button{
+                    
+                } label:{
+                    Text("Let's Party")
+                        .frame(width: 270, height: 60)
+                        .background(Color("cribCyan"))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(30)
+                        .font(Font.custom("MADETOMMY-Bold", size: 25)).foregroundColor(.black)
+                        
+                }.position(x: 200, y: 700)
+                
 //        .gesture(
 //            DragGesture()
 //                .onChanged { value in
@@ -150,6 +182,9 @@ struct HostScreen: View {
 //                }
 //        )
         
+            }
+        }
+        
     }
 }
 
@@ -158,48 +193,3 @@ struct HostScreen_Previews: PreviewProvider {
         HostScreen()
     }
 }
-
-struct DropDown: View {
-    
-    @State var expand = false
-    @State var tagsInput: String = ""
-    var s1,s2,s3,s4 : String
-    
-    init(_ _s1:String,_ _s2:String,_ _s3:String,_ _s4:String){
-        s1 = _s1
-        s2 = _s2
-        s3 = _s3
-        s4 = _s4
-    }
-    var body: some View {
-        VStack{
-            HStack{
-                Image(systemName: "chevron.down")
-                VStack{
-                    if(expand){
-                        Button {
-                            tagsInput = s1
-                        } label: {
-                            Text("\(s1)")
-                        }
-                        Button {
-                            tagsInput = s2
-                        } label: {
-                            Text("\(s2)")
-                        }
-                        Button {
-                            tagsInput = s3
-                        } label: {
-                            Text("\(s3)")
-                        }
-                    }
-                }
-            }.onTapGesture {
-                self.expand.toggle()
-            }
-
-            
-        }.padding(.trailing)
-    }
-}
-

@@ -8,6 +8,7 @@
 import Foundation
 
 struct PartyModel: Codable{
+    // var isPrivate: bool
     var address: AddressModel
     var comments: String?
     var hostId: String

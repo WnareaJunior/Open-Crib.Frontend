@@ -56,7 +56,7 @@ struct Feed:  View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                     
 
@@ -89,11 +89,12 @@ struct CribFeed: View{
 
                         VStack(alignment: .leading, spacing: 5){
                             Text("\(party.partyName)")
-                                .bold()
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
                             Text("by " + "\(party.hostUsername)")
-
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
                             Text("\(party.address.city)")
                                 .foregroundColor(Color.cribGray)
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
                         }
                     }
                 }
@@ -132,11 +133,13 @@ struct cribPost: View {
 
                 VStack(alignment: .leading, spacing: 5){
                     Text("\(partyName)")
-                        .bold()
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                     Text("by " + "\(hostUsername)")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
 
                     Text("\(city)")
                         .foregroundColor(Color.cribGray)
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                 }
             }
         }

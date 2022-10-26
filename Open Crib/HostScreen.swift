@@ -41,7 +41,7 @@ struct HostScreen: View {
                     Text("What?")
                         .foregroundColor(.white)
                         .frame(width: 100, height: 60, alignment: .top)
-                        .font(Font.custom("MADETOMMY-Bold", size: 30))
+                        .font(Font.custom("MADETOMMY-Bold", size: 25))
                         
                         
                     TextField("  Party Name",text: $partyNameInput)
@@ -49,7 +49,7 @@ struct HostScreen: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(Font.custom("MADETOMMY-Bold", size: 30))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
                 }
@@ -60,7 +60,7 @@ struct HostScreen: View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(Font.custom("MADETOMMY-Bold", size: 20))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
                         .onSubmit {
@@ -97,7 +97,7 @@ struct HostScreen: View {
                     Text("Where?")
                         .foregroundColor(.white)
                         .frame(width: 100, height: 60, alignment: .center)
-                        .font(Font.custom("MADETOMMY-Bold", size: 30))
+                        .font(Font.custom("MADETOMMY-Bold", size: 25))
                         .aspectRatio(contentMode: .fit)
                     TextField("  Address",text: $addressInput)
                         .frame(width: 240, height: 35)
@@ -129,7 +129,7 @@ struct HostScreen: View {
                 HStack{
                     Text("When?")
                         .foregroundColor(.white)
-                        .font(Font.custom("MADETOMMY-Bold", size: 30))
+                        .font(Font.custom("MADETOMMY-Bold", size: 25))
                         .frame(width: 120, height: 30, alignment: .leading)
                     
                     DatePicker("", selection: $date)

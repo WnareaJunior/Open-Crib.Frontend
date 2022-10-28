@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct HomescreenView: View {
     
     
@@ -25,7 +26,6 @@ struct HomescreenView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 250, height: 250)
-                        
                         .padding(.bottom,20)
                     
                         
@@ -39,20 +39,17 @@ struct HomescreenView: View {
                             .background(Color("cribGray"))
                             .foregroundColor(Color.white)
                             .cornerRadius(30)
-                            .font(.system(size: 20,weight: .bold,design:.default)).foregroundColor(.black)
+                            .font(Font.custom("MADETOMMY-Bold", size: 20)).foregroundColor(.black)
                         
                             
                     }).navigationBarTitle(Text(""))
                         .navigationBarHidden(true)
-                       
-                    
-                        
-                    
                     .padding()
                     
                     Text("Sign up with:")
                         .padding()
                         .foregroundColor(.white)
+                        .font(Font.custom("MADE-TOMMY-Bold", size: 15))
                     
                     HStack{
                         Button {
@@ -88,12 +85,13 @@ struct HomescreenView: View {
                     HStack{
                         Text("Already a member?")
                             .foregroundColor(.white)
-                            .font(.system(size: 18))
+                            .font(Font.custom("MADETOMMY-Bold", size: 15))
                         Button{
                             
                         } label:{
                             Text("Log in")
                                 .foregroundColor(Color("cribGray"))
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
                             
                         }
                     }

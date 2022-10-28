@@ -15,7 +15,7 @@ struct SignUpView: View {
     @State private var usernameInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
-    @State private var passwordAlert: String = " "
+//    @State private var passwordAlert: String = " "
     @State var birthdate = Date()
     
     var body: some View{
@@ -26,58 +26,64 @@ struct SignUpView: View {
                 Color("cribGray")
                     .ignoresSafeArea()
                 VStack{
+                    HStack{
+                    Text("Find Out ")
+                        .foregroundColor(Color.white)
+                        .frame(width: 100, height: 50)
+                        .font(Font.custom("MADETOMMY-Bold", size: 20))
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.bottom, 30)
+                    Text("What's The Play")
+                            .foregroundColor(Color.white)
+                            .frame(width: 200, height: 50)
+                            .font(Font.custom("MADETOMMY-Bold", size: 25))
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.bottom, 15)
+                    }
                     
                     TextField("  Username",text: $usernameInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
-                        .padding(.bottom, 15)
+                        .padding(.bottom, 30)
                     TextField("  Password",text: $passwordInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
-                        .padding(.bottom, 15)
-                    Text("\(passwordAlert)")
-                        .font(Font.system(size: 10,  design: .default))
-                        .foregroundColor(Color("cribCyan"))
-                    TextField("  Password Again",text: $secondPasswordInput)
+                        .padding(.bottom, 30)
+//                    Text("\(passwordAlert)")
+//                        .font(Font.system(size: 10,  design: .default))
+//                        .foregroundColor(Color("cribCyan"))
+                    TextField("  Confirm Password",text: $secondPasswordInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(.system(size: 12, design: .default))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 15)
                     DatePicker("Birthdate", selection: $birthdate, displayedComponents: .date)
                         .frame(width: 240, height: 35)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .font(Font.custom("MADETOMMY-Bold", size: 20))
                     
                     Button(action: {
-                        
-                        if valObj.passwordValidation(password: passwordInput, password2: secondPasswordInput) 
-                        {
                             appState.hasOnboarded = true
-                        } else {
-                            print("try again")
-                            passwordAlert = "Incorrect Input"
-                            
-                        }
                         
-                        
-                        
-
-                        
-                    }, label: {
-                        Text("Sign Up!!!")
-                            .frame(width: 240, height: 35)
+                        }, label: {
+                    Text("Sign Up")
+                            .frame(width: 240, height: 39)
                             .foregroundColor(.black)
                             .background(Color("cribCyan"))
                             .cornerRadius(20)
+                            .font(Font.custom("MADETOMMY-Bold", size: 20))
                     })
                         
         
@@ -108,7 +114,7 @@ struct SignUpView: View {
         
     }
    
-}
+
         
        
              
@@ -126,4 +132,5 @@ struct WelcomeView_Previews: PreviewProvider {
                 
         }
     }
+}
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct HomescreenView: View {
     
     
@@ -16,17 +17,16 @@ struct HomescreenView: View {
         ZStack{
             
             
-            Color("cribGray")
+            Color("cribCyan")
                 .ignoresSafeArea()
             VStack{
                 VStack{
-                    Image(systemName: "trash.circle.fill")
+                    Image("cribIcon")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                        
-                        .padding(.bottom,200)
+                        .frame(width: 250, height: 250)
+                        .padding(.bottom,20)
                     
                         
                 }
@@ -36,38 +36,36 @@ struct HomescreenView: View {
                     NavigationLink(destination: SignUpView(), label: {
                         Text("Sign Up")
                             .frame(width: 250, height: 50)
-                            .background(Color("cribCyan"))
+                            .background(Color("cribGray"))
+                            .foregroundColor(Color.white)
                             .cornerRadius(30)
-                            .font(.system(size: 20,weight: .bold,design:.default)).foregroundColor(.black)
+                            .font(Font.custom("MADETOMMY-Bold", size: 20)).foregroundColor(.black)
                         
                             
                     }).navigationBarTitle(Text(""))
                         .navigationBarHidden(true)
-                       
-                    
-                        
-                    
                     .padding()
                     
                     Text("Sign up with:")
                         .padding()
                         .foregroundColor(.white)
+                        .font(Font.custom("MADE-TOMMY-Bold", size: 15))
                     
                     HStack{
                         Button {
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("google").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         Button {
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("facebook").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         
@@ -75,10 +73,10 @@ struct HomescreenView: View {
                             
                             
                         } label: {
-                            Image(systemName: "person.circle.fill").renderingMode(.original)
+                            Image("instagram").renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             .padding()
                         }
                         
@@ -87,23 +85,18 @@ struct HomescreenView: View {
                     HStack{
                         Text("Already a member?")
                             .foregroundColor(.white)
-                            .font(.system(size: 18))
+                            .font(Font.custom("MADETOMMY-Bold", size: 15))
                         Button{
                             
                         } label:{
                             Text("Log in")
-                                .foregroundColor(Color("cribCyan"))
+                                .foregroundColor(Color("cribGray"))
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
                             
                         }
                     }
             }
-            
-            
-            
-            
-            
-                
-                
+   
             }
         }
     }
@@ -115,4 +108,8 @@ struct HomeScreen_Preview: PreviewProvider {
             HomescreenView()
         }
     }
+}
+
+extension Color {
+    
 }

@@ -6,20 +6,21 @@
 //
 
 import Foundation
-import UIKit
+
 
 class User {
     
-    private var partiesAttended = 0;
-    private var partiesHosted = 0;
-    private var username: String
-    private var password: String
-    private var DOB: Date
+//    private var partiesAttended = [Party]()
+//    private var partiesHosted =  [Party]()
+    var username: String
+    var password: String
+//    private var DOB: Date
     
-    init(username:String,password:String,DOB:Date) {
+    init(username:String,password:String) {
         self.username = username
         self.password = password
-        self.DOB = DOB
+//        self.DOB = DOB
     }
+    
     
 }

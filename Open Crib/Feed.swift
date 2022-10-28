@@ -12,31 +12,16 @@ import SwiftUI
 struct Feed:  View {
     @State private var searchBar: String  = ""
     @Binding var currentDragOffsetY: CGFloat
-    
-    
     var body: some View {
-        
-        
         ZStack{
-            
-//            Color(.clear)
-//                .cornerRadius(40)
-//                .ignoresSafeArea()
-            // No changes when above lines are commented so im gonna leave them like that
-            
-               
-                ZStack{
-                    
+            ZStack{
                 RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
                     .fill(Color.cribGray)
                     .ignoresSafeArea()
                 Rectangle()
                         .fill(Color.cribGray)
                         .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.maxY)
-                    
-                
                 VStack(){
-                    
                     HStack{
                         Spacer()
                         Image(systemName: "chevron.up")
@@ -50,12 +35,12 @@ struct Feed:  View {
                     .padding(.horizontal,30)
                     .gesture(
                         DragGesture()
-                            .onChanged {value in
+                            .onChanged { value in
                                 withAnimation(.spring()) {
                                     currentDragOffsetY = value.translation.height
                                 }
                             }
-                            .onEnded {value in
+                            .onEnded { value in
                                 withAnimation(.spring()) {
                                     if currentDragOffsetY < 400 {
                                         currentDragOffsetY = 50
@@ -66,160 +51,131 @@ struct Feed:  View {
                             }
                     )
                     
-                    
-                    
-                    
-                    
                     TextField("    Search",text: $searchBar)
-                                            .frame(width: 350, height: 35)
-                                            .background(.white)
-                                            .cornerRadius(10)
-                                            .textInputAutocapitalization(.never)
-                                            .font(.system(size: 12, design: .default))
-                                            .disableAutocorrection(true)
+                        .frame(width: 350, height: 35)
+                        .background(.white)
+                        .cornerRadius(10)
+                        .textInputAutocapitalization(.never)
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .disableAutocorrection(true)
                     
 
-                    
-                        CribFeed()
-                            .opacity(5.0)
-                            .padding(.top,35)
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
-                            .onAppear {
-                                UITableView.appearance().backgroundColor = .clear
-//                                if currentDragOffsetY == UIScreen.main.bounds.height*0.80{
-//                                    UITableView.appearance().
-//                                }
-                            
-//                        Spacer()
-
+                    FakeFeed()
+                        .opacity(100)
+                        .padding(.top,35)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
+                        .onAppear {
+                            UITableView.appearance().backgroundColor = .clear
+                        }.onAppear { print("appeared!") }
                 }
             }
-            
         }
-//        .gesture(
-//            DragGesture()
-//                .onChanged {value in
-//                    withAnimation(.spring()) {
-//                        currentDragOffsetY = value.translation.height
-//                    }
-//                }
-//                .onEnded {value in
-//                    withAnimation(.spring()) {
-//                        if currentDragOffsetY < 400 {
-//                            currentDragOffsetY = 50
-//                        } else {
-//                            currentDragOffsetY = UIScreen.main.bounds.height*0.80
-//                        }
-//                    }
-//                }
-//        )
-        
-        
     }
 }
 
 struct CribFeed: View{
-    var cribPosts: [Post] = cribInfo.cribs
-    
+    @State var partyItems: [PartyModel] = []
     var body: some View{
-        List(cribPosts,id: \.id) { post in
-             CribPost(cribName: post.cribName,hostName: post.hostName,dist: post.dist)
-        }
-                    
-    }
-}
+        List{
+            ForEach(partyItems, id: \.id){ party in
+                ZStack(){
+                    HStack(){
+                    Image(systemName: "scribble")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 85, height: 85)
 
-struct CribPost: View{
-    let cribName: String
-    let hostName: String
-    let dist: Float
-    init(cribName: String, hostName: String, dist: Float){
-        self.cribName = cribName
-        self.hostName = hostName
-        self.dist = dist
+
+                        VStack(alignment: .leading, spacing: 5){
+                            Text("\(party.partyName)")
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+                            Text("by " + "\(party.hostUsername)")
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+                            Text("\(party.address.city)")
+                                .foregroundColor(Color.cribGray)
+                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        }
+                    }
+                }
+            }
+             
+        }.onAppear {
+            APIClient.shared.getData { partyItems in
+                self.partyItems = partyItems
+                print(partyItems)
+            }
+        }
     }
-    var body: some View{
-        
-        
+                    
+}
+struct cribPost: View {
+    var city: String
+    var hostUsername: String
+    var partyName: String
+    let id = UUID()
+    
+    init(_ _partyName: String,_ _hostUsername: String,_ _city: String){
+        partyName = _partyName
+        hostUsername = _hostUsername
+        city = _city
+    }
+    
+    var body: some View {
         ZStack(){
-           
             HStack(){
             Image(systemName: "scribble")
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 85, height: 85)
-                
-                
+
+
                 VStack(alignment: .leading, spacing: 5){
-                    Text(cribName)
-                        .bold()
-                    Text("by " + hostName)
-                        
-                    Text(dist.description + " miles away")
+                    Text("\(partyName)")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                    Text("by " + "\(hostUsername)")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+
+                    Text("\(city)")
                         .foregroundColor(Color.cribGray)
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
                 }
             }
         }
-       
     }
 }
 
-struct Post: Identifiable {
-    let id = UUID()
-    let cribName: String
-    let hostName: String
-    let dist: Float
-}
-struct cribInfo {
-    static let cribs = [
-        Post(cribName: "Rager",
-             hostName: "Oscar",
-             dist: 0.8),
-        Post(cribName: "Getty n Chill",
-             hostName: "chillboi",
-             dist: 0.9),
-        Post(cribName: "BISCAYNE BANGER 🌴",
-             hostName: "MiamiPartyz",
-             dist: 6.3),
-        Post(cribName: "my first opencrib",
-             hostName: "shartmaster",
-             dist: 8.2),
-        Post(cribName: "Big",
-             hostName: "Othdfsboi",
-             dist: 4.6),
-        Post(cribName: "Getty",
-             hostName: "chsdfhoi",
-             dist: 4.6),
-        Post(cribName: "Rager",
-             hostName: "Otherboi",
-             dist: 4.6),
-        Post(cribName: "Getty",
-             hostName: "chillboi",
-             dist: 4.6),
-        Post(cribName: "hella",
-             hostName: "hi",
-             dist: 4.6),
-        Post(cribName: "tool",
-             hostName: "chifi",
-             dist: 4.6),
-        Post(cribName: "Big",
-             hostName: "Othdfsboi",
-             dist: 4.6),
-        Post(cribName: "Getty",
-             hostName: "chsdfhoi",
-             dist: 4.6)
-    ]
-    
-}
-struct Feed_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Feed(currentDragOffsetY: HomePageView().$currentOffsetY)
+private var partyArr = [
+    cribPost("litty getty","naenae","Jacksonville"),
+    cribPost("#1 function tn","skeeter","Kendall"),
+    cribPost("1st","mistercream","Miami Lakes"),
+    cribPost("woooo","bishopp","Hollywood"),
+    cribPost("Kyle's birthday bash","KyleR","Coral Gables"),
+    cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
+
+struct FakeFeed: View{
+    var body: some View {
+        List{
+            partyArr[0]
+            partyArr[1]
+            partyArr[2]
+            partyArr[3]
+            partyArr[4]
+            partyArr[5]
         }
     }
 }
+
+
+struct Feed_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            Feed(currentDragOffsetY: DefaultHomePageView().$currentOffsetY)
+        }
+    }
 }
+
 
 extension Color {
     

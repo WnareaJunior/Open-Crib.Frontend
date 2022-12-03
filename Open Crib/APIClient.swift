@@ -1,67 +1,39 @@
 //
 //  APIClient.swift
-//  Open Crib
+//  testing-opencrib
 //
-//  Created by oscar alvarez on 8/9/22.
+//  Created by Wilson Narea on 11/25/22.
 //
 
 import Foundation
+import SwiftUI
 
-class APIClient {
+
+class APIClient{
     
-    let baseURL = "https://opencribapi20225.azurewebsites.net/api/Party/GetPartiesNearby/"
-    
-    static let shared = APIClient()
-    
-    private init(){
-    }
-    
-    func getData(completion: @escaping ([PartyModel]) -> Void) {
-    
-        guard let url = URL(string: "https://opencribapi20220716052945.azurewebsites.net/api/Party/GetPartiesNearby/33178/200") else {
-            return
-        }
-    
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
+    init(){
         
-            guard let partyItems = try? decoder.decode([PartyModel].self, from: data) else{
-                print("could not decode")
-                return
-            }
-            completion(partyItems)
-        }.resume()
     }
     
-//    func receiveData(completion: @escaping ([PartyModel]) -> Void){
-//        guard let url = URL(string: "https://opencribapi20220716052945.azurewebsites.net/api/Party/GetPartiesNearby/33178/200") else {
-//            return
-//        }
-//    
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            guard let data = data else {
-//                return
-//            }
-//            let encoder = JSONEncoder()
-//            encoder.dateEncodingStrategy = .iso8601
-//        
-//            guard let partyItems = try? encoder.encode([PartyModel].self) else{
-//                print("could not encode")
-//                return
-//            }
-//            completion(partyItems)
-//        }.resume()
-//    }
+    
+    func fetchPartyInfo() async throws -> [PartyModel]{
+            let url = URL(string: "https://opencribdevapi.azurewebsites.net/api/Party/GetPartiesNearby/33019/0")!
+            
+            let (data,response) = try await URLSession.shared.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw PartyError.itemNotFound
+            }
+            let jsonDecoder = JSONDecoder()
+            let partyInfo = try jsonDecoder.decode([PartyModel].self, from: data)
+            
+            return (partyInfo)
+            
+        }
+
+    
+}
+
+enum PartyError: Error, LocalizedError {
+    case itemNotFound
 }

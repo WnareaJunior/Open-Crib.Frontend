@@ -10,6 +10,8 @@ import SwiftUI
 
 struct HomescreenView: View {
     
+    @State var partyItems: [PartyModel] = []
+    
     
     var body: some View {
        
@@ -60,6 +62,14 @@ struct HomescreenView: View {
                             .frame(width: 60, height: 60)
                             .padding()
                         }
+                        .onAppear(perform: {
+                            debugPrint("HELLO")
+                            
+                            
+                        
+                            
+                        })
+                        
                         Button {
                         } label: {
                             Image("facebook").renderingMode(.original)
@@ -97,6 +107,13 @@ struct HomescreenView: View {
                     }
             }
    
+            }
+        }
+        .onAppear{
+            Task{
+                do{
+                    
+                }
             }
         }
     }

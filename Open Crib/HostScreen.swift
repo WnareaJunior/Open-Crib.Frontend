@@ -63,13 +63,18 @@ struct HostScreen: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
+                        
                         .onSubmit {
                             if(tags.count < 4){
                                 if(tagsInput.count < 22){
                                     tags.append(tagsInput)
                                 }
                             }
+                            
+                                
+                            
                         }
+                      
                         
                         HStack{
                             ForEach(tags, id: \.self){
@@ -187,6 +192,7 @@ struct HostScreen: View {
         
     }
 }
+
 
 struct HostScreen_Previews: PreviewProvider {
     static var previews: some View {

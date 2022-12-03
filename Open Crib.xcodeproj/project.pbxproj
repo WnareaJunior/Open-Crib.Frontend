@@ -13,6 +13,7 @@
 		7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F245E18276AD8C5003D7514 /* ContentView.swift */; };
 		7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1A276AD8C7003D7514 /* Assets.xcassets */; };
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
+		7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C6CB293C08880064AB6A /* commentModel.swift */; };
 		7F54FC09282A0879008EB351 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F54FC08282A0879008EB351 /* Alamofire */; };
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
 		7F8F3CCC2837583C00FE5326 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCB2837583C00FE5326 /* User.swift */; };
@@ -41,6 +42,7 @@
 		7F245E18276AD8C5003D7514 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F245E1A276AD8C7003D7514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F45C6CB293C08880064AB6A /* commentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentModel.swift; sourceTree = "<group>"; };
 		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7F8F3CCB2837583C00FE5326 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F8F3CCD28375D2100FE5326 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				7F8F3CCB2837583C00FE5326 /* User.swift */,
+				7F45C6CB293C08880064AB6A /* commentModel.swift */,
 				A2F96B0628AEF91B00933E61 /* UserModel.swift */,
 				A2F96B0428AEF82100933E61 /* UserViewModel.swift */,
 				7F8F3CCD28375D2100FE5326 /* Party.swift */,
@@ -243,6 +246,7 @@
 				7F8F3CCC2837583C00FE5326 /* User.swift in Sources */,
 				A216D7F928A305C9005659CA /* AddressModel.swift in Sources */,
 				A2F96B0728AEF91B00933E61 /* UserModel.swift in Sources */,
+				7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */,
 				A216D7FB28A305E9005659CA /* APIClient.swift in Sources */,
 				7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */,
 				A250506D28DA7510008FFEBD /* Hitboxes.swift in Sources */,
@@ -398,7 +402,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"GENERATE_INFOPLIST_FILE[sdk=iphoneos*]" = YES;
-				INFOPLIST_FILE = "Open-Crib-Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -430,7 +434,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"GENERATE_INFOPLIST_FILE[sdk=iphoneos*]" = YES;
-				INFOPLIST_FILE = "Open-Crib-Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

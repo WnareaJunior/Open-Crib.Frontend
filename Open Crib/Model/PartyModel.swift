@@ -8,16 +8,15 @@
 import Foundation
 
 struct PartyModel: Codable{
-    // var isPrivate: bool
-    var address: AddressModel
-    var comments: String?
-    var hostId: String
-    var hostUsername: String
     var id: String
+    var hostId: String
+    var comments: [commentModel]?
+    var hostUsername: String
     var partyName: String
-    var date: Date
+    var date: String
     var rsvps: [String]
     var views: Int
     var tags: [String]
+    var address: AddressModel
     
 }

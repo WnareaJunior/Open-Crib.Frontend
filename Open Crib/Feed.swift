@@ -9,9 +9,16 @@ import Foundation
 import SwiftUI
 
 
+let apiClient = APIClient()
+
 struct Feed:  View {
     @State private var searchBar: String  = ""
     @Binding var currentDragOffsetY: CGFloat
+    var apiClient = APIClient()
+    
+    
+   
+    
     var body: some View {
         ZStack{
             ZStack{
@@ -74,6 +81,7 @@ struct Feed:  View {
 }
 
 struct CribFeed: View{
+    
     @State var partyItems: [PartyModel] = []
     var body: some View{
         List{
@@ -100,11 +108,6 @@ struct CribFeed: View{
                 }
             }
              
-        }.onAppear {
-            APIClient.shared.getData { partyItems in
-                self.partyItems = partyItems
-                print(partyItems)
-            }
         }
     }
                     
@@ -155,6 +158,7 @@ private var partyArr = [
     cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
 
 struct FakeFeed: View{
+    @State var partyList: [PartyModel] = [PartyModel]()
     var body: some View {
         List{
             partyArr[0]
@@ -164,6 +168,17 @@ struct FakeFeed: View{
             partyArr[4]
             partyArr[5]
         }
+        .onAppear{
+            Task{
+                do{
+                    partyList.self = try await apiClient.fetchPartyInfo()
+                    print("we did it:\(partyList)")
+                }catch{
+                    print("fail\(error)")
+                }
+                
+            }
+        }
     }
 }
 
@@ -171,7 +186,7 @@ struct FakeFeed: View{
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Feed(currentDragOffsetY: DefaultHomePageView().$currentOffsetY)
+            Feed(currentDragOffsetY: DefaultHomePageView(apiClient: apiClient).$currentOffsetY, apiClient: apiClient)
         }
     }
 }

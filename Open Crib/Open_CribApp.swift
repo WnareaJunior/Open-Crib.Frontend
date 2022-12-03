@@ -19,12 +19,14 @@ class AppState: ObservableObject {
 @main
 
 struct Open_CribApp: App {
+    let apiClient = APIClient()
     @ObservedObject var appState = AppState(hasOnboarded: false)
     var body: some Scene {
         WindowGroup {
             
             if(appState.hasOnboarded){
-               SupraView()
+                SupraView(apiClient: apiClient)
+                    
                    
             
                     

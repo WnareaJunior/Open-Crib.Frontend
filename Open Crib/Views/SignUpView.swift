@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+import Firebase
 
 struct SignUpView: View {
   
     @EnvironmentObject var appState: AppState
-    @StateObject private var valObj = Validation()
-    @State private var usernameInput: String  = ""
+    @State private var emailInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
 //    @State private var passwordAlert: String = " "
@@ -41,7 +40,7 @@ struct SignUpView: View {
                             .padding(.bottom, 15)
                     }
                     
-                    TextField("  Username",text: $usernameInput)
+                    TextField("  Email",text: $emailInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
                         .cornerRadius(10)
@@ -75,7 +74,9 @@ struct SignUpView: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 20))
                     
                     Button(action: {
-                            appState.hasOnboarded = true
+                        register(email: emailInput, password: passwordInput)
+                        
+                           // appState.hasOnboarded = true
                         
                         }, label: {
                     Text("Sign Up")
@@ -85,6 +86,14 @@ struct SignUpView: View {
                             .cornerRadius(20)
                             .font(Font.custom("MADETOMMY-Bold", size: 20))
                     })
+                        .onAppear{
+                            Auth.auth().addStateDidChangeListener{ auth, user in
+                                if user != nil {
+                                    appState.hasOnboarded = true
+                                }
+                                
+                            }
+                        }
                         
         
 //                    NavigationLink(destination: HomePageView(), label: {Text("Sign up")

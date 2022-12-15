@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Foundation
-import FirebaseCore
+import Firebase
 
 class AppState: ObservableObject {
     @Published var hasOnboarded: Bool
@@ -17,21 +17,15 @@ class AppState: ObservableObject {
     }
 }
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
 
-    return true
-  }
-}
 
 @main
 
 struct Open_CribApp: App {
+    init(){
+        FirebaseApp.configure()
+    }
     let apiClient = APIClient()
-    
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var appState = AppState(hasOnboarded: false)
     var body: some Scene {
         WindowGroup {

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7F0389DA29479CFB0079219A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F0389D929479CFB0079219A /* GoogleService-Info.plist */; };
-		7F1A698F285105AE00DC36DD /* SignupValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A698E285105AE00DC36DD /* SignupValidation.swift */; };
 		7F1A6992285108FA00DC36DD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A6991285108FA00DC36DD /* LocationManager.swift */; };
 		7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F245E16276AD8C5003D7514 /* Open_CribApp.swift */; };
 		7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F245E18276AD8C5003D7514 /* ContentView.swift */; };
 		7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1A276AD8C7003D7514 /* Assets.xcassets */; };
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
+		7F36EE20294AF28A001191FF /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36EE1F294AF28A001191FF /* Authentication.swift */; };
 		7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C6CB293C08880064AB6A /* commentModel.swift */; };
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
 		7F78B4C129492CED00DB7E11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C029492CED00DB7E11 /* FirebaseAuth */; };
@@ -38,13 +38,13 @@
 
 /* Begin PBXFileReference section */
 		7F0389D929479CFB0079219A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7F1A698E285105AE00DC36DD /* SignupValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidation.swift; sourceTree = "<group>"; };
 		7F1A6991285108FA00DC36DD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7F245E13276AD8C5003D7514 /* Open Crib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Crib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F245E16276AD8C5003D7514 /* Open_CribApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open_CribApp.swift; sourceTree = "<group>"; };
 		7F245E18276AD8C5003D7514 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F245E1A276AD8C7003D7514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F36EE1F294AF28A001191FF /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7F45C6CB293C08880064AB6A /* commentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentModel.swift; sourceTree = "<group>"; };
 		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7F8F3CCB2837583C00FE5326 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -81,6 +81,9 @@
 		7F1A6990285105B300DC36DD /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A216D7FA28A305E9005659CA /* APIClient.swift */,
+				7F1A6991285108FA00DC36DD /* LocationManager.swift */,
+				7F36EE1F294AF28A001191FF /* Authentication.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -105,22 +108,10 @@
 		7F245E15276AD8C5003D7514 /* Open Crib */ = {
 			isa = PBXGroup;
 			children = (
+				7F47296B294AD52500FEDFD5 /* Views */,
 				7F0389D929479CFB0079219A /* GoogleService-Info.plist */,
 				7F8F3CCA2837581E00FE5326 /* Model */,
 				7F245E16276AD8C5003D7514 /* Open_CribApp.swift */,
-				A250506C28DA7510008FFEBD /* Hitboxes.swift */,
-				7F245E18276AD8C5003D7514 /* ContentView.swift */,
-				7FABDCFB27E421E200375941 /* HomeScreen.swift */,
-				7F5FC8C0276BA161005A919C /* SignUpView.swift */,
-				A2328E6127F68491002A79A9 /* Feed.swift */,
-				A216D7FA28A305E9005659CA /* APIClient.swift */,
-				7FC961B82778FF2100ECCAEC /* DefaultHomePageView.swift */,
-				A231381028D163F60039C944 /* MasterHomePageView.swift */,
-				A231381428D94AD10039C944 /* SupraView.swift */,
-				A231381228D948930039C944 /* Profile.swift */,
-				A216D7FE28AC671C005659CA /* HostScreen.swift */,
-				7F1A698E285105AE00DC36DD /* SignupValidation.swift */,
-				7F1A6991285108FA00DC36DD /* LocationManager.swift */,
 				7F1A6990285105B300DC36DD /* Service */,
 				7F245E1A276AD8C7003D7514 /* Assets.xcassets */,
 				7F245E1C276AD8C7003D7514 /* Preview Content */,
@@ -134,6 +125,23 @@
 				7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7F47296B294AD52500FEDFD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A231381228D948930039C944 /* Profile.swift */,
+				7F5FC8C0276BA161005A919C /* SignUpView.swift */,
+				A231381028D163F60039C944 /* MasterHomePageView.swift */,
+				A216D7FE28AC671C005659CA /* HostScreen.swift */,
+				A231381428D94AD10039C944 /* SupraView.swift */,
+				A2328E6127F68491002A79A9 /* Feed.swift */,
+				7FC961B82778FF2100ECCAEC /* DefaultHomePageView.swift */,
+				7FABDCFB27E421E200375941 /* HomeScreen.swift */,
+				7F245E18276AD8C5003D7514 /* ContentView.swift */,
+				A250506C28DA7510008FFEBD /* Hitboxes.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7F8F3CCA2837581E00FE5326 /* Model */ = {
@@ -241,7 +249,6 @@
 				7F245E19276AD8C5003D7514 /* ContentView.swift in Sources */,
 				7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */,
 				7F1A6992285108FA00DC36DD /* LocationManager.swift in Sources */,
-				7F1A698F285105AE00DC36DD /* SignupValidation.swift in Sources */,
 				A216D7F728A3055F005659CA /* PartyModel.swift in Sources */,
 				A216D7FF28AC671C005659CA /* HostScreen.swift in Sources */,
 				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
@@ -253,6 +260,7 @@
 				A2F96B0728AEF91B00933E61 /* UserModel.swift in Sources */,
 				7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */,
 				A216D7FB28A305E9005659CA /* APIClient.swift in Sources */,
+				7F36EE20294AF28A001191FF /* Authentication.swift in Sources */,
 				7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */,
 				A250506D28DA7510008FFEBD /* Hitboxes.swift in Sources */,
 				7FC961B92778FF2100ECCAEC /* DefaultHomePageView.swift in Sources */,

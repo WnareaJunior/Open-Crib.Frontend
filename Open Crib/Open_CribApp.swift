@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Firebase
 
 class AppState: ObservableObject {
     @Published var hasOnboarded: Bool
@@ -16,9 +17,14 @@ class AppState: ObservableObject {
     }
 }
 
+
+
 @main
 
 struct Open_CribApp: App {
+    init(){
+        FirebaseApp.configure()
+    }
     let apiClient = APIClient()
     @ObservedObject var appState = AppState(hasOnboarded: false)
     var body: some Scene {

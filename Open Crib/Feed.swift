@@ -171,7 +171,7 @@ struct FakeFeed: View{
         .onAppear{
             Task{
                 do{
-                    partyList.self = try await apiClient.fetchPartyInfo()
+                    partyList.self = try await APIClient.fetchPartyInfo()
                     print("we did it:\(partyList)")
                 }catch{
                     print("fail\(error)")

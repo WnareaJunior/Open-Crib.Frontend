@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0389DA29479CFB0079219A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F0389D929479CFB0079219A /* GoogleService-Info.plist */; };
 		7F1A698F285105AE00DC36DD /* SignupValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A698E285105AE00DC36DD /* SignupValidation.swift */; };
 		7F1A6992285108FA00DC36DD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A6991285108FA00DC36DD /* LocationManager.swift */; };
 		7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F245E16276AD8C5003D7514 /* Open_CribApp.swift */; };
@@ -14,8 +15,9 @@
 		7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1A276AD8C7003D7514 /* Assets.xcassets */; };
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
 		7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C6CB293C08880064AB6A /* commentModel.swift */; };
-		7F54FC09282A0879008EB351 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F54FC08282A0879008EB351 /* Alamofire */; };
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
+		7F78B4C129492CED00DB7E11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C029492CED00DB7E11 /* FirebaseAuth */; };
+		7F78B4C329492CED00DB7E11 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C229492CED00DB7E11 /* FirebaseAuthCombine-Community */; };
 		7F8F3CCC2837583C00FE5326 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCB2837583C00FE5326 /* User.swift */; };
 		7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCD28375D2100FE5326 /* Party.swift */; };
 		7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABDCFB27E421E200375941 /* HomeScreen.swift */; };
@@ -35,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F0389D929479CFB0079219A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F1A698E285105AE00DC36DD /* SignupValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidation.swift; sourceTree = "<group>"; };
 		7F1A6991285108FA00DC36DD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7F245E13276AD8C5003D7514 /* Open Crib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Crib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +55,6 @@
 		A216D7F828A305C9005659CA /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		A216D7FA28A305E9005659CA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A216D7FE28AC671C005659CA /* HostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostScreen.swift; sourceTree = "<group>"; };
-		A21F48C729062A97007899EF /* Open-Crib-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Open-Crib-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A21F48CA29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE TOMMY Bold_PERSONAL USE.otf"; sourceTree = "<group>"; };
 		A231381028D163F60039C944 /* MasterHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterHomePageView.swift; sourceTree = "<group>"; };
 		A231381228D948930039C944 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -68,7 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F54FC09282A0879008EB351 /* Alamofire in Frameworks */,
+				7F78B4C329492CED00DB7E11 /* FirebaseAuthCombine-Community in Frameworks */,
+				7F78B4C129492CED00DB7E11 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +105,7 @@
 		7F245E15276AD8C5003D7514 /* Open Crib */ = {
 			isa = PBXGroup;
 			children = (
-				A21F48C729062A97007899EF /* Open-Crib-Info.plist */,
+				7F0389D929479CFB0079219A /* GoogleService-Info.plist */,
 				7F8F3CCA2837581E00FE5326 /* Model */,
 				7F245E16276AD8C5003D7514 /* Open_CribApp.swift */,
 				A250506C28DA7510008FFEBD /* Hitboxes.swift */,
@@ -173,7 +176,8 @@
 			);
 			name = "Open Crib";
 			packageProductDependencies = (
-				7F54FC08282A0879008EB351 /* Alamofire */,
+				7F78B4C029492CED00DB7E11 /* FirebaseAuth */,
+				7F78B4C229492CED00DB7E11 /* FirebaseAuthCombine-Community */,
 			);
 			productName = "Open Crib";
 			productReference = 7F245E13276AD8C5003D7514 /* Open Crib.app */;
@@ -204,7 +208,7 @@
 			);
 			mainGroup = 7F245E0A276AD8C5003D7514;
 			packageReferences = (
-				7F54FC07282A0879008EB351 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7F78B4BF29492CED00DB7E11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 7F245E14276AD8C5003D7514 /* Products */;
 			projectDirPath = "";
@@ -221,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */,
+				7F0389DA29479CFB0079219A /* GoogleService-Info.plist in Resources */,
 				A21F48CB29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf in Resources */,
 				7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */,
 			);
@@ -486,13 +491,26 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7F78B4BF29492CED00DB7E11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7F54FC08282A0879008EB351 /* Alamofire */ = {
+		7F78B4C029492CED00DB7E11 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7F54FC07282A0879008EB351 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = 7F78B4BF29492CED00DB7E11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7F78B4C229492CED00DB7E11 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F78B4BF29492CED00DB7E11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
 		};
 		7FA95918284303C2009C63D7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

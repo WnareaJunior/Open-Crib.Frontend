@@ -63,7 +63,7 @@ struct Feed:  View {
                         .background(.white)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
-                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .font(Font.custom(Fonts.tommy, size: 15))
                         .disableAutocorrection(true)
                     
 

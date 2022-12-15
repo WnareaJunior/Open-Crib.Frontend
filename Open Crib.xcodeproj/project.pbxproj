@@ -14,6 +14,7 @@
 		7F245E1B276AD8C7003D7514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1A276AD8C7003D7514 /* Assets.xcassets */; };
 		7F245E1E276AD8C7003D7514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */; };
 		7F36EE20294AF28A001191FF /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36EE1F294AF28A001191FF /* Authentication.swift */; };
+		7F36EE22294AF82A001191FF /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36EE21294AF82A001191FF /* Fonts.swift */; };
 		7F45C6CC293C08880064AB6A /* commentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C6CB293C08880064AB6A /* commentModel.swift */; };
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
 		7F78B4C129492CED00DB7E11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C029492CED00DB7E11 /* FirebaseAuth */; };
@@ -45,6 +46,7 @@
 		7F245E1A276AD8C7003D7514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F245E1D276AD8C7003D7514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F36EE1F294AF28A001191FF /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		7F36EE21294AF82A001191FF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7F45C6CB293C08880064AB6A /* commentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentModel.swift; sourceTree = "<group>"; };
 		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7F8F3CCB2837583C00FE5326 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		A21F48C4290627CF007899EF /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				7F36EE21294AF82A001191FF /* Fonts.swift */,
 				A21F48CA29063293007899EF /* MADE TOMMY Bold_PERSONAL USE.otf */,
 			);
 			path = Font;
@@ -254,6 +257,7 @@
 				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
 				A231381328D948930039C944 /* Profile.swift in Sources */,
 				7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */,
+				7F36EE22294AF82A001191FF /* Fonts.swift in Sources */,
 				A231381128D163F60039C944 /* MasterHomePageView.swift in Sources */,
 				7F8F3CCC2837583C00FE5326 /* User.swift in Sources */,
 				A216D7F928A305C9005659CA /* AddressModel.swift in Sources */,

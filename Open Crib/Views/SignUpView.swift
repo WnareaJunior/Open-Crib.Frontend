@@ -74,9 +74,9 @@ struct SignUpView: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 20))
                     
                     Button(action: {
-                        register(email: emailInput, password: passwordInput)
+                        appState.hasOnboarded = register(email: emailInput, password: passwordInput)
                         
-                           // appState.hasOnboarded = true
+                         
                         
                         }, label: {
                     Text("Sign Up")

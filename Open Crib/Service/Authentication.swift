@@ -8,9 +8,11 @@
 import Foundation
 import Firebase
 
-func register(email: String,password:String){
+func register(email: String,password:String)->Bool{
+    var didRegister: Bool = true
     Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
         if error != nil {
+            didRegister = false
             let errorMessage = error?.localizedDescription ?? "Something went wrong"
             print(errorMessage)
         }
@@ -18,6 +20,9 @@ func register(email: String,password:String){
         print(result?.user.uid ?? "Error getting uid")
         
         
+        
     })
+    return didRegister
 }
+
 

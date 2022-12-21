@@ -73,7 +73,7 @@ struct Feed:  View {
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
                         .onAppear {
                             UITableView.appearance().backgroundColor = .clear
-                        }.onAppear { print("appeared!") }
+                        }
                 }
             }
         }
@@ -112,7 +112,7 @@ struct CribFeed: View{
     }
                     
 }
-struct cribPost: View {
+struct cribPost: View,Identifiable{
     var city: String
     var hostUsername: String
     var partyName: String
@@ -149,30 +149,34 @@ struct cribPost: View {
     }
 }
 
-private var partyArr = [
-    cribPost("litty getty","naenae","Jacksonville"),
-    cribPost("#1 function tn","skeeter","Kendall"),
-    cribPost("1st","mistercream","Miami Lakes"),
-    cribPost("woooo","bishopp","Hollywood"),
-    cribPost("Kyle's birthday bash","KyleR","Coral Gables"),
-    cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
+//private var partyArr:[PartyModel]
+//    cribPost("litty getty","naenae","Jacksonville"),
+//    cribPost("#1 function tn","skeeter","Kendall"),
+//    cribPost("1st","mistercream","Miami Lakes"),
+//    cribPost("woooo","bishopp","Hollywood"),
+//    cribPost("Kyle's birthday bash","KyleR","Coral Gables"),
+//    cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
 
 struct FakeFeed: View{
     @State var partyList: [PartyModel] = [PartyModel]()
+    @State var partyArr:[cribPost] = []
     var body: some View {
         List{
-            partyArr[0]
-            partyArr[1]
-            partyArr[2]
-            partyArr[3]
-            partyArr[4]
-            partyArr[5]
+            ForEach(partyArr,id: \.id){post in
+                cribPost(post.partyName, post.hostUsername, post.city)
+            }
+            
         }
         .onAppear{
             Task{
                 do{
                     partyList.self = try await APIClient.fetchPartyInfo()
                     print("we did it:\(partyList)")
+                    print("size of party list\(partyList.count)")
+                    partyArr = partyList.map({
+                        return cribPost($0.partyName, $0.hostUsername, $0.address.city)
+                    })
+                    print("size of party arr\(partyArr.count)")
                 }catch{
                     print("fail\(error)")
                 }

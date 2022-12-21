@@ -62,13 +62,7 @@ struct HomescreenView: View {
                             .frame(width: 60, height: 60)
                             .padding()
                         }
-                        .onAppear(perform: {
-                            debugPrint("HELLO")
-                            
-                            
-                        
-                            
-                        })
+                    
                         
                         Button {
                         } label: {

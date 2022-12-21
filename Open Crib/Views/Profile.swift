@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 
 struct Profile: View {
     var body: some View {
@@ -15,6 +16,13 @@ struct Profile: View {
                 .ignoresSafeArea()
             Text("Profile")
                 .foregroundColor(Color.white)
+                .onTapGesture {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch let signOutError as NSError {
+                      print("Error signing out: %@", signOutError)
+                    }
+                }
         }
     }
 }

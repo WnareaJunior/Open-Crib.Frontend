@@ -32,10 +32,11 @@ class APIClient{
         return (UserInfo)
         
     }
+   
     
     
     static func fetchPartyInfo() async throws -> [PartyModel]{
-            let url = URL(string: "https://opencribdevapi.azurewebsites.net/api/Party/GetPartiesNearby/33019/0")!
+            let url = URL(string: "https://opencribdevapi.azurewebsites.net/api/Party/GetPartiesNearby/33019/200")!
             
             let (data,response) = try await URLSession.shared.data(from: url)
             

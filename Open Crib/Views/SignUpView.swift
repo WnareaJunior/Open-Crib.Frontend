@@ -11,6 +11,7 @@ import Firebase
 struct SignUpView: View {
   
     @EnvironmentObject var appState: AppState
+    var localAuth: LocalAuth = LocalAuth()
     @State private var emailInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
@@ -74,8 +75,18 @@ struct SignUpView: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 20))
                     
                     Button(action: {
-                        appState.hasOnboarded = register(email: emailInput, password: passwordInput)
-                        
+                        //NEEDS TO BE REFACTORED
+                        print("On button pressed")
+                        localAuth.register(email: emailInput, password: passwordInput)
+                       
+                        Auth.auth().addStateDidChangeListener{ auth, user in
+                            if user != nil {
+                                appState.hasOnboarded = true
+                            }else {
+                                appState.hasOnboarded = false
+                            }
+
+                        }
                          
                         
                         }, label: {
@@ -87,12 +98,7 @@ struct SignUpView: View {
                             .font(Font.custom("MADETOMMY-Bold", size: 20))
                     })
                         .onAppear{
-                            Auth.auth().addStateDidChangeListener{ auth, user in
-                                if user != nil {
-                                    appState.hasOnboarded = true
-                                }
-                                
-                            }
+                            
                         }
                         
         

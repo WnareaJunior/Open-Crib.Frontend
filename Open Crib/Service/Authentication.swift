@@ -7,22 +7,39 @@
 
 import Foundation
 import Firebase
+import SwiftUI
+import MapKit
 
-func register(email: String,password:String)->Bool{
-    var didRegister: Bool = true
-    Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
-        if error != nil {
-            didRegister = false
-            let errorMessage = error?.localizedDescription ?? "Something went wrong"
-            print(errorMessage)
-        }
-        print(result?.user.email ?? "Error getting email")
-        print(result?.user.uid ?? "Error getting uid")
+class LocalAuth{
+    init(){
         
+    }
+    @EnvironmentObject var appState: AppState
+    func register(email: String,password:String){
         
+        Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
+            if error != nil {
+               
+                let errorMessage = error?.localizedDescription ?? "Something went wrong"
+                print(errorMessage)
+            }else{
+                print(result?.user.email ?? "Error getting email")
+                print(result?.user.uid ?? "Error getting uid")
+            }
+            
+            
+            
+            
+        })
+    }
+    func didUserLogin() {
         
-    })
-    return didRegister
+    }
+    func logOut(){
+        
+    }
+
 }
+
 
 

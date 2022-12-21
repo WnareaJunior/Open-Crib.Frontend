@@ -14,7 +14,10 @@ class AppState: ObservableObject {
     
     init(hasOnboarded: Bool) {
         self.hasOnboarded = hasOnboarded
+       
+            
     }
+    
 }
 
 
@@ -24,9 +27,14 @@ class AppState: ObservableObject {
 struct Open_CribApp: App {
     init(){
         FirebaseApp.configure()
+        //self.appState = AppState(hasOnboarded: false)
+        
     }
-    let apiClient = APIClient()
+    
+    
+    //@ObservedObject var appState:AppState
     @ObservedObject var appState = AppState(hasOnboarded: false)
+    
     var body: some Scene {
         WindowGroup {
             

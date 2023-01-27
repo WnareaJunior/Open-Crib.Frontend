@@ -19,6 +19,7 @@
 		7F5FC8C1276BA161005A919C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FC8C0276BA161005A919C /* SignUpView.swift */; };
 		7F78B4C129492CED00DB7E11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C029492CED00DB7E11 /* FirebaseAuth */; };
 		7F78B4C329492CED00DB7E11 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78B4C229492CED00DB7E11 /* FirebaseAuthCombine-Community */; };
+		7F8EEE71298434690048E955 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EEE70298434690048E955 /* Settings.swift */; };
 		7F8F3CCC2837583C00FE5326 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCB2837583C00FE5326 /* User.swift */; };
 		7F8F3CCE28375D2100FE5326 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F3CCD28375D2100FE5326 /* Party.swift */; };
 		7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABDCFB27E421E200375941 /* HomeScreen.swift */; };
@@ -49,6 +50,7 @@
 		7F36EE21294AF82A001191FF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7F45C6CB293C08880064AB6A /* commentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentModel.swift; sourceTree = "<group>"; };
 		7F5FC8C0276BA161005A919C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		7F8EEE70298434690048E955 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7F8F3CCB2837583C00FE5326 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F8F3CCD28375D2100FE5326 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		7FABDCFB27E421E200375941 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				A216D7FE28AC671C005659CA /* HostScreen.swift */,
 				A231381428D94AD10039C944 /* SupraView.swift */,
 				A2328E6127F68491002A79A9 /* Feed.swift */,
+				7F8EEE70298434690048E955 /* Settings.swift */,
 				7FC961B82778FF2100ECCAEC /* DefaultHomePageView.swift */,
 				7FABDCFB27E421E200375941 /* HomeScreen.swift */,
 				7F245E18276AD8C5003D7514 /* ContentView.swift */,
@@ -257,6 +260,7 @@
 				A2328E6227F68491002A79A9 /* Feed.swift in Sources */,
 				A231381328D948930039C944 /* Profile.swift in Sources */,
 				7FABDCFC27E421E200375941 /* HomeScreen.swift in Sources */,
+				7F8EEE71298434690048E955 /* Settings.swift in Sources */,
 				7F36EE22294AF82A001191FF /* Fonts.swift in Sources */,
 				A231381128D163F60039C944 /* MasterHomePageView.swift in Sources */,
 				7F8F3CCC2837583C00FE5326 /* User.swift in Sources */,

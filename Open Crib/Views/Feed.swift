@@ -201,6 +201,9 @@ extension Color {
     static var cribGray: Color {
         Color("cribGray")
     }
+    static var cribCyan: Color {
+        Color("cribCyan")
+    }
 }
 
 

@@ -65,6 +65,7 @@ struct Feed:  View {
                         .textInputAutocapitalization(.never)
                         .font(Font.custom(Fonts.tommy, size: 15))
                         .disableAutocorrection(true)
+                        .foregroundColor(.black)
                     
 
                     FakeFeed()

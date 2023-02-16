@@ -47,8 +47,10 @@ struct Profile: View {
             }
             .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxY, alignment: .top)
             
-            
-            
+            HostingTab()
+                .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY+80)
+            AttendingTab()
+                .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY+80)
             
 //            Text("Profile")
 //                .foregroundColor(Color.white)

@@ -15,6 +15,7 @@ struct Profile: View {
             Color.cribGray
                 .ignoresSafeArea()
             VStack{
+                
                 HStack{
                     Circle()
                     .frame(width: 130, height: 130, alignment: .leading)

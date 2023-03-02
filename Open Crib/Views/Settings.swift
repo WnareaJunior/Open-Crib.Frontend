@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Settings: View {
+    var localAuth: LocalAuth = LocalAuth()
     @State var itsOn = true
     var body: some View {
         VStack{
@@ -24,6 +25,9 @@ struct Settings: View {
                     HStack{
                         Spacer()
                         Text("Log Out")
+                            .onTapGesture {
+                                localAuth.signOut()
+                            }
                         Spacer()
                     }
                     HStack{

@@ -16,9 +16,6 @@ struct Feed:  View {
     @Binding var currentDragOffsetY: CGFloat
     var apiClient = APIClient()
     
-    
-   
-    
     var body: some View {
         ZStack{
             ZStack{
@@ -68,7 +65,7 @@ struct Feed:  View {
                         .foregroundColor(.black)
                     
 
-                    FakeFeed()
+                    CribFeed()
                         .opacity(100)
                         .padding(.top,35)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
@@ -81,38 +78,38 @@ struct Feed:  View {
     }
 }
 
-struct CribFeed: View{
-    
-    @State var partyItems: [PartyModel] = []
-    var body: some View{
-        List{
-            ForEach(partyItems, id: \.id){ party in
-                ZStack(){
-                    HStack(){
-                    Image(systemName: "scribble")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 85, height: 85)
-
-
-                        VStack(alignment: .leading, spacing: 5){
-                            Text("\(party.partyName)")
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                            Text("by " + "\(party.hostUsername)")
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                            Text("\(party.address.city)")
-                                .foregroundColor(Color.cribGray)
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                        }
-                    }
-                }
-            }
-             
-        }
-    }
+//struct CribFeed: View{
+//
+//    @State var partyItems: [PartyModel] = []
+//    var body: some View{
+//        List{
+//            ForEach(partyItems, id: \.id){ party in
+//                ZStack(){
+//                    HStack(){
+//                    Image(systemName: "scribble")
+//                        .renderingMode(.original)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 85, height: 85)
+//
+//
+//                        VStack(alignment: .leading, spacing: 5){
+//                            Text("\(party.partyName)")
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                            Text("by " + "\(party.hostUsername)")
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                            Text("\(party.address.city)")
+//                                .foregroundColor(Color.cribGray)
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+//    }
                     
-}
+//}
 struct cribPost: View,Identifiable{
     var city: String
     var hostUsername: String
@@ -127,24 +124,30 @@ struct cribPost: View,Identifiable{
     
     var body: some View {
         ZStack(){
-            HStack(){
-            Image(systemName: "scribble")
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 85, height: 85)
-
-
-                VStack(alignment: .leading, spacing: 5){
+            VStack(){
+                HStack(){
+                    Circle()
+                        .frame(width: 20, height: 20, alignment: .trailing)
                     Text("\(partyName)")
-                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .font(Font.custom("MADETOMMY-Bold", size: 18))
                     Text("by " + "\(hostUsername)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
-
-                    Text("\(city)")
-                        .foregroundColor(Color.cribGray)
+                }.padding(.trailing, 20)
+                
+                Divider()
+                
+                Image(systemName: "scribble")
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 85, height: 85)
+                
+                Divider()
+                
+                Text("\(city)")
+                    .foregroundColor(.white)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
-                }
+                
             }
         }
     }
@@ -158,7 +161,7 @@ struct cribPost: View,Identifiable{
 //    cribPost("Kyle's birthday bash","KyleR","Coral Gables"),
 //    cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
 
-struct FakeFeed: View{
+struct CribFeed: View{
     @State var partyList: [PartyModel] = [PartyModel]()
     @State var partyArr:[cribPost] = []
     var body: some View {

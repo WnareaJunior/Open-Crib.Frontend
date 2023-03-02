@@ -35,6 +35,7 @@ struct HomescreenView: View {
                 VStack(spacing: 0){
                     
                     
+                    
                     NavigationLink(destination: SignUpView(), label: {
                         Text("Sign Up")
                             .frame(width: 250, height: 50)
@@ -47,6 +48,8 @@ struct HomescreenView: View {
                     }).navigationBarTitle(Text(""))
                         .navigationBarHidden(true)
                     .padding()
+                    
+                    
                     
                     Text("Sign up with:")
                         .padding()
@@ -90,29 +93,24 @@ struct HomescreenView: View {
                         Text("Already a member?")
                             .foregroundColor(.white)
                             .font(Font.custom("MADETOMMY-Bold", size: 15))
-                        Button{
+                        
+                        
+                        NavigationLink(destination: LogInView(), label: {
                             
-                        } label:{
                             Text("Log in")
                                 .foregroundColor(Color("cribGray"))
                                 .font(Font.custom("MADETOMMY-Bold", size: 15))
-                            
-                        }
+                            })
+                            .navigationBarTitle(Text(""))
+                        .navigationBarHidden(true)
+                    .padding()
                     }
-            }
-   
-            }
-        }
-        .onAppear{
-            Task{
-                do{
-                    
                 }
             }
         }
     }
-
 }
+
 struct HomeScreen_Preview: PreviewProvider {
     static var previews: some View {
         Group {
@@ -121,6 +119,3 @@ struct HomeScreen_Preview: PreviewProvider {
     }
 }
 
-extension Color {
-    
-}

@@ -1,22 +1,23 @@
 //
-//  WelcomeView.swift
+//  LogInView.swift
 //  Open Crib
 //
-//  Created by Wilson Narea on 12/16/21.
+//  Created by oscar alvarez on 2/15/23.
 //
+
+import Foundation
+
 
 import SwiftUI
 import Firebase
 
-struct SignUpView: View {
+struct LogInView: View {
   
     @EnvironmentObject var appState: AppState
     var localAuth: LocalAuth = LocalAuth()
     @State private var emailInput: String  = ""
     @State private var passwordInput: String  = ""
-    @State private var secondPasswordInput: String  = ""
 //    @State private var passwordAlert: String = " "
-    @State var birthdate = Date()
     
     var body: some View{
         //Color("cribGray")
@@ -27,20 +28,20 @@ struct SignUpView: View {
                     .ignoresSafeArea()
                 VStack{
                     HStack{
-                    Text("Find Out ")
-                        .foregroundColor(Color.white)
-                        .frame(width: 100, height: 50)
-                        .font(Font.custom("MADETOMMY-Bold", size: 20))
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.bottom, 30)
+//                    Text("Find Out ")
+//                        .foregroundColor(Color.white)
+//                        .frame(width: 100, height: 50)
+//                        .font(Font.custom("MADETOMMY-Bold", size: 20))
+//                        .aspectRatio(contentMode: .fit)
+//                        .padding(.bottom, 30)
                     Text("What's The Play")
                             .foregroundColor(Color.white)
-                            .frame(width: 200, height: 50)
-                            .font(Font.custom("MADETOMMY-Bold", size: 25))
+                            .frame(width: 250, height: 50)
+                            .font(Font.custom("MADETOMMY-Bold", size: 30))
                             .aspectRatio(contentMode: .fit)
-                            .padding(.bottom, 15)
+                            
                     }
-                    
+                    .padding(.vertical,40)
                     TextField("  Email",text: $emailInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
@@ -49,7 +50,7 @@ struct SignUpView: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .foregroundColor(.black)
                         .disableAutocorrection(true)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 40)
                     TextField("  Password",text: $passwordInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
@@ -58,32 +59,17 @@ struct SignUpView: View {
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .foregroundColor(.black)
                         .disableAutocorrection(true)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 60)
 //                    Text("\(passwordAlert)")
 //                        .font(Font.system(size: 10,  design: .default))
 //                        .foregroundColor(Color("cribCyan"))
-                    TextField("  Confirm Password",text: $secondPasswordInput)
-                        .frame(width: 240, height: 35)
-                        .background(.white)
-                        .cornerRadius(10)
-                        .textInputAutocapitalization(.never)
-                        .font(Font.custom("MADETOMMY-Bold", size: 15))
-                        .foregroundColor(.black)
-                        .disableAutocorrection(true)
-                        .padding(.bottom, 15)
-                    DatePicker("Birthdate", selection: $birthdate, displayedComponents: .date)
-                        .frame(width: 240, height: 35)
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .font(Font.custom("MADETOMMY-Bold", size: 20))
-                    
                     Button(action: {
                         //NEEDS TO BE REFACTORED
                         print("On button pressed")
-                        localAuth.register(email: emailInput, password: passwordInput)
+                        // localAuth.register(email: emailInput, password: passwordInput)
                        
                         Auth.auth().addStateDidChangeListener{ auth, user in
-                            if user != nil {
+                            if user == nil {
                                 appState.hasOnboarded = true
                             }else {
                                 appState.hasOnboarded = false
@@ -93,16 +79,13 @@ struct SignUpView: View {
                          
                         
                         }, label: {
-                    Text("Sign Up")
+                    Text("Log In")
                             .frame(width: 240, height: 50)
                             .foregroundColor(.black)
                             .background(Color("cribCyan"))
                             .cornerRadius(20)
                             .font(Font.custom("MADETOMMY-Bold", size: 20))
-                    })
-                        .onAppear{
-                            
-                        }
+                        }).padding(.bottom, 200)
                         
         
 //                    NavigationLink(destination: HomePageView(), label: {Text("Sign up")
@@ -145,7 +128,7 @@ struct SignUpView: View {
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SignUpView()
+            LogInView()
             
                 
         }

@@ -66,10 +66,11 @@ struct LogInView: View {
                     Button(action: {
                         //NEEDS TO BE REFACTORED
                         print("On button pressed")
-                        // localAuth.register(email: emailInput, password: passwordInput)
-                       
+                        
+                        localAuth.login(email: emailInput, password: passwordInput)
+                        
                         Auth.auth().addStateDidChangeListener{ auth, user in
-                            if user == nil {
+                            if user != nil {
                                 appState.hasOnboarded = true
                             }else {
                                 appState.hasOnboarded = false

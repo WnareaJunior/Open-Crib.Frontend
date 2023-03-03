@@ -13,13 +13,13 @@ struct AttendingTab: View {
         Path { path in
             path.move(to: CGPoint(x: 3, y: 150))
             path.addLine(to: CGPoint(x: 3, y: UIScreen.main.bounds.maxY-83))
-            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX-2, y: UIScreen.main.bounds.maxY-83))
+            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX-3, y: UIScreen.main.bounds.maxY-83))
             
-            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX-3, y: 150))
-            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX-30, y: 150))
-            path.addQuadCurve(to: CGPoint(x: UIScreen.main.bounds.midX, y: 120), control: CGPoint(x: 300, y: 120))
-            path.addLine(to: CGPoint(x: UIScreen.main.bounds.midX, y: 150))
+            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX-3, y: 120))
+            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX*0.7, y: 120))
+            path.addLine(to: CGPoint(x: UIScreen.main.bounds.maxX*0.5, y: 150))
             
+            path.closeSubpath()
             
         }.fill(.white)
         

@@ -127,26 +127,35 @@ struct cribPost: View,Identifiable{
             VStack(){
                 HStack(){
                     Circle()
-                        .frame(width: 20, height: 20, alignment: .trailing)
+                        .frame(width: 20, height: 20, alignment: .center)
                     Text("\(partyName)")
-                        .font(Font.custom("MADETOMMY-Bold", size: 18))
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .padding(.trailing,-5)
                     Text("by " + "\(hostUsername)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
-                }.padding(.trailing, 20)
+                }.frame(width: 500, height: 40, alignment: .leading)
                 
                 Divider()
-                
+                HStack{
                 Image(systemName: "scribble")
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 85, height: 85)
+                }
                 
                 Divider()
                 
-                Text("\(city)")
+                HStack{
+                    Image(systemName: "house")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25, alignment: .leading)
+                
+                    Text("\(city)")
                     .foregroundColor(.white)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
+                }.frame(width: 500, height: 40, alignment: .leading)
                 
             }
         }

@@ -127,36 +127,37 @@ struct cribPost: View,Identifiable{
             VStack(){
                 HStack(){
                     Circle()
-                        .frame(width: 20, height: 20, alignment: .center)
+                        .frame(width: 20, height: 20, alignment: .leading)
                     Text("\(partyName)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
                         .padding(.trailing,-5)
                     Text("by " + "\(hostUsername)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
-                }.frame(width: 500, height: 40, alignment: .leading)
-                
-                Divider()
-                HStack{
-                Image(systemName: "scribble")
-                    .renderingMode(.original)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 85, height: 85)
+                    
+                    Spacer()
                 }
                 
                 Divider()
                 
-                HStack{
-                    Image(systemName: "house")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25, alignment: .leading)
-                
-                    Text("\(city)")
+                Image(systemName:"scribble")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 80, alignment: .center)
                     .foregroundColor(.white)
-                        .font(Font.custom("MADETOMMY-Bold", size: 15))
-                }.frame(width: 500, height: 40, alignment: .leading)
+                    
                 
+                Divider()
+                
+                HStack(){
+                    Image(systemName:"house.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.white)
+                    Text("\(city)")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        
+                    Spacer()
+                }
             }
         }
     }

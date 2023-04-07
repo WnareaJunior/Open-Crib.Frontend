@@ -10,6 +10,9 @@ import SwiftUI
 import FirebaseAuth
 
 struct Profile: View {
+    @State private var zIndexAttend: Double = 0;
+    @State private var zIndexHost: Double = 0;
+    @State private var hostOnTop: Bool = true;
     var body: some View {
         NavigationView{
             ZStack{
@@ -69,22 +72,30 @@ struct Profile: View {
                     }
                 .frame(width: UIScreen.main.bounds.maxX, height: 230, alignment: .center)
     
-    
-    
-    
                 }
                 .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxY, alignment: .top)
                 
                 AttendingTab()
-                                    .position(x: UIScreen.main.bounds.maxX*0.5, y: UIScreen.main.bounds.maxY*0.63)
-                                    .onTapGesture {
-                                        print("attending")
-                                    }
+                    .position(x: UIScreen.main.bounds.maxX*0.5, y: UIScreen.main.bounds.maxY*0.63)
+                    .zIndex(zIndexAttend)
+                    .onTapGesture {
+                        if(hostOnTop){
+                            zIndexAttend = 1
+                            zIndexHost = 0
+                            hostOnTop = false
+                        }
+                    }
+                                    
 
                 HostingTab()
                     .position(x: UIScreen.main.bounds.maxX*0.5, y: UIScreen.main.bounds.maxY*0.63)
+                    .zIndex(zIndexHost)
                     .onTapGesture {
-                        print("hosting")
+                        if(!hostOnTop){
+                            zIndexHost = 1
+                            zIndexAttend = 0
+                            hostOnTop = true
+                        }
                     }
                 
 

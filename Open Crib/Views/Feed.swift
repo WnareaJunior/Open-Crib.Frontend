@@ -120,6 +120,7 @@ struct cribPost: View,Identifiable{
         partyName = _partyName
         hostUsername = _hostUsername
         city = _city
+        
     }
     
     var body: some View {
@@ -142,22 +143,32 @@ struct cribPost: View,Identifiable{
                 Image(systemName:"scribble")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 80, alignment: .center)
+                    .frame(width: 150, height: 100, alignment: .center)
                     .foregroundColor(.white)
+                    .padding(.vertical, 20)
+                
                     
                 
                 Divider()
                 
                 HStack(){
-                    Image(systemName:"house.fill")
+                    Image("houseIcon")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.white)
+                        .onTapGesture {
+                            //rsvp(_partyId)
+                        }
                     Text("\(city)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
                         
                     Spacer()
                 }
+                HStack(){
+                    Text("Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                    Spacer()
+                }.padding(.vertical,10)
             }
         }
     }

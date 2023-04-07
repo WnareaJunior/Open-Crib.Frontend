@@ -38,7 +38,6 @@
 		A2C41DB02988443B004D0A9E /* HostingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C41DAF2988443B004D0A9E /* HostingTab.swift */; };
 		A2C41DB22988AC7C004D0A9E /* AttendingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C41DB12988AC7B004D0A9E /* AttendingTab.swift */; };
 		A2F04AEA299DEAA9008FD462 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F04AE9299DEAA9008FD462 /* LogInView.swift */; };
-		A2F96B0528AEF82100933E61 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F96B0428AEF82100933E61 /* UserViewModel.swift */; };
 		A2F96B0728AEF91B00933E61 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F96B0628AEF91B00933E61 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,6 @@
 		A2C41DAF2988443B004D0A9E /* HostingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTab.swift; sourceTree = "<group>"; };
 		A2C41DB12988AC7B004D0A9E /* AttendingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendingTab.swift; sourceTree = "<group>"; };
 		A2F04AE9299DEAA9008FD462 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
-		A2F96B0428AEF82100933E61 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		A2F96B0628AEF91B00933E61 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +165,6 @@
 				7F8F3CCB2837583C00FE5326 /* User.swift */,
 				7F45C6CB293C08880064AB6A /* commentModel.swift */,
 				A2F96B0628AEF91B00933E61 /* UserModel.swift */,
-				A2F96B0428AEF82100933E61 /* UserViewModel.swift */,
 				7F8F3CCD28375D2100FE5326 /* Party.swift */,
 				A216D7F628A3055F005659CA /* PartyModel.swift */,
 				A216D7F828A305C9005659CA /* AddressModel.swift */,
@@ -287,7 +284,6 @@
 				7F87EE9629B1547A00013034 /* ProfileTest.swift in Sources */,
 				A250506D28DA7510008FFEBD /* Hitboxes.swift in Sources */,
 				7FC961B92778FF2100ECCAEC /* DefaultHomePageView.swift in Sources */,
-				A2F96B0528AEF82100933E61 /* UserViewModel.swift in Sources */,
 				7F245E17276AD8C5003D7514 /* Open_CribApp.swift in Sources */,
 				A2C41DB02988443B004D0A9E /* HostingTab.swift in Sources */,
 				A231381528D94AD10039C944 /* SupraView.swift in Sources */,

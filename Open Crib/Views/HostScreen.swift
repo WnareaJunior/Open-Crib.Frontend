@@ -15,7 +15,7 @@ struct HostScreen: View {
     @State private var tags: Array<String> = []
     @State private var inviteInput: String  = ""
     @State private var addressInput: String  = ""
-    @StateObject var vm = UserViewModel()
+    
     @State private var userInput=[User]()
     @State private var date = Date()
     @State private var isPrivate: Bool = false
@@ -47,6 +47,7 @@ struct HostScreen: View {
                     TextField("  Party Name",text: $partyNameInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
@@ -58,6 +59,7 @@ struct HostScreen: View {
                     TextField("  Tags",text: $tagsInput)
                         .frame(width: 350, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
@@ -107,6 +109,7 @@ struct HostScreen: View {
                     TextField("  Address",text: $addressInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))

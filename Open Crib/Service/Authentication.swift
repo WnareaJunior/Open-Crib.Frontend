@@ -28,8 +28,6 @@ class LocalAuth{
             }
             
             
-            
-            
         })
     }
     func login(email: String,password: String) {

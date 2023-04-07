@@ -24,53 +24,18 @@ struct Profile: View {
                         Image(systemName: "gearshape.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 25, height: 25)
-                            .position(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.05)
                             .foregroundColor(.white)
                         
                             
                     }).navigationBarTitle(Text(""))
                         .navigationBarHidden(true)
-                    .padding()
+                        
+                        .position(x: UIScreen.main.bounds.maxX*0.43, y: UIScreen.main.bounds.maxY*0.07)
+                        .frame(width: 25, height: 25)
+                       
                     
                     
-                }
-               
-                
-    //            NavigationLink(destination: Settings()){
-    //                Button(action: {}){
-    //                    Image(systemName: "gearshape.fill")
-    //                        .resizable()
-    //                        .scaledToFit()
-    //                        .frame(width: 25, height: 25)
-    //                        .position(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.05)
-    //                        .foregroundColor(.white)
-    //                }
-    //            }
-    //
-    //
-    //                                        Image(systemName: "gearshape.fill")
-    //                        .resizable()
-    //                        .scaledToFit()
-    //                        .frame(width: 25, height: 25)
-    //                        .position(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.05)
-    //                        .foregroundColor(.white)
-    //                        .onTapGesture {
-    //                            print("you tapped me (settings)")
-    //                            Settings()
-    //                        }
-    //
-    //
-                            
-    //                }).navigationBarTitle(Text(""))
-    //                    .navigationBarHidden(false)
                     
-                    
-                
-                
-                   
-    
-                VStack{
                     HStack{
                         Circle()
                         .frame(width: 130, height: 130, alignment: .leading)
@@ -110,17 +75,19 @@ struct Profile: View {
                 }
                 .frame(width: UIScreen.main.bounds.maxX, height: UIScreen.main.bounds.maxY, alignment: .top)
                 
+                AttendingTab()
+                                    .position(x: UIScreen.main.bounds.maxX*0.5, y: UIScreen.main.bounds.maxY*0.63)
+                                    .onTapGesture {
+                                        print("attending")
+                                    }
+
                 HostingTab()
-                    .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY+80)
+                    .position(x: UIScreen.main.bounds.maxX*0.5, y: UIScreen.main.bounds.maxY*0.63)
                     .onTapGesture {
                         print("hosting")
                     }
-                AttendingTab()
-                    .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY+80)
-                    .onTapGesture {
-                        print("attending")
-                    }
                 
+
                 
                 
                 

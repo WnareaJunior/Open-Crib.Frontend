@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+let apiClient = APIClient()
+
 struct HostScreen: View {
 
     @State private var partyNameInput: String  = ""
@@ -160,16 +162,14 @@ struct HostScreen: View {
             }.position(x: UIScreen.main.bounds.maxX/2, y: 250)
             
             HStack{
-                Button{
-                    
-                } label:{
+                Button(action: apiClient.postParty(partyInfo: PartyModel(hostUsername: , partyName: <#T##String#>, date: <#T##String#>, rsvps: <#T##[String]#>, views: <#T##Int#>, tags: <#T##[String]#>, address: <#T##AddressModel#>)), label: {
                     Text("Let's Party")
                         .frame(width: 270, height: 60)
                         .background(Color("cribCyan"))
                         .foregroundColor(Color.white)
                         .cornerRadius(30)
                         .font(Font.custom("MADETOMMY-Bold", size: 25)).foregroundColor(.black)
-                        
+                    })
                 }.position(x: 200, y: 700)
                 
 //        .gesture(
@@ -193,8 +193,8 @@ struct HostScreen: View {
             }
         }
         
-    }
 }
+
 
 
 struct HostScreen_Previews: PreviewProvider {

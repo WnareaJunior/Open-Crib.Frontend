@@ -21,8 +21,6 @@ struct LogInView: View {
     
     var body: some View{
         //Color("cribGray")
-        
-        
             ZStack{
                 Color("cribGray")
                     .ignoresSafeArea()

@@ -49,11 +49,11 @@ class APIClient{
             return (partyInfo)
             
         }
-//    func postParty(partyInfo: PartyModel) async throws {
-//        let partyUrl = baseUrl
-//
-//
-//    }
+    func postParty(partyInfo: PartyModel) async throws {
+        let partyUrl = baseUrl
+        
+
+    }
     
 
     

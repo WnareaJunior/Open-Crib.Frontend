@@ -8,9 +8,12 @@
 import Foundation
 
 struct UserModel:Codable{
-    var partiesAttended: Int
-    var partiesHosted: Int
+    var partiesAttended: [String]
+    var partiesThrown: [String]
     var username: String
     var password: String
     var DOB: Date
+    var followers: Int
+    var following: Int
+    var rank: Int
 }

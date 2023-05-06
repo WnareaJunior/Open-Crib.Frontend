@@ -13,6 +13,7 @@ struct SignUpView: View {
     @EnvironmentObject var appState: AppState
     var localAuth: LocalAuth = LocalAuth()
     @State private var emailInput: String  = ""
+    @State private var usernameInput: String  = ""
     @State private var passwordInput: String  = ""
     @State private var secondPasswordInput: String  = ""
 //    @State private var passwordAlert: String = " "
@@ -50,6 +51,17 @@ struct SignUpView: View {
                         .foregroundColor(.black)
                         .disableAutocorrection(true)
                         .padding(.bottom, 30)
+                    
+                    TextField("  Username",text: $usernameInput)
+                        .frame(width: 240, height: 35)
+                        .background(.white)
+                        .cornerRadius(10)
+                        .textInputAutocapitalization(.never)
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .foregroundColor(.black)
+                        .disableAutocorrection(true)
+                        .padding(.bottom, 30)
+                    
                     TextField("  Password",text: $passwordInput)
                         .frame(width: 240, height: 35)
                         .background(.white)

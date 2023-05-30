@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import CoreData
 
 struct SignUpView: View {
   
@@ -93,6 +94,35 @@ struct SignUpView: View {
                         //NEEDS TO BE REFACTORED
                         print("On button pressed")
                         localAuth.register(email: emailInput, password: passwordInput)
+                        
+//                        lazy var persistentContainer: NSPersistentContainer = {
+//                            let container = NSPersistentContainer(name: "CurrentUser")
+//                            container.loadPersistentStores(completionHandler: { (_, error) in
+//                                if let error = error {
+//                                    fatalError("Failed to load Core Data stack: \(error)")
+//                                }
+//                            })
+//                            return container
+//                        }()
+//
+//                        lazy var managedObjectContext: NSManagedObjectContext = {
+//                            return persistentContainer.viewContext
+//                        }()
+//                        let context = persistentContainer.viewContext
+//
+//                        if let entity = NSEntityDescription.entity(forEntityName: "EntityName", in: context) {
+//                            let newObject = NSManagedObject(entity: entity, insertInto: context)
+//                            newObject.setValue("Example", forKey: "attributeName")
+//
+//                            do {
+//                                try context.save()
+//                                print("Object saved successfully")
+//                            } catch {
+//                                print("Error saving object: \(error)")
+//                            }
+//                        } else {
+//                            print("Entity not found")
+//                        }
                        
                         Auth.auth().addStateDidChangeListener{ auth, user in
                             if user != nil {

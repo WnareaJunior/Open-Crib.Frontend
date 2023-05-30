@@ -8,9 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-let apiClient = APIClient()
-
 struct Feed:  View {
     @State private var searchBar: String  = ""
     @Binding var currentDragOffsetY: CGFloat
@@ -212,13 +209,13 @@ struct CribFeed: View{
 }
 
 
-struct Feed_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Feed(currentDragOffsetY: DefaultHomePageView(apiClient: apiClient).$currentOffsetY, apiClient: apiClient)
-        }
-    }
-}
+//struct Feed_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            Feed(currentDragOffsetY: DefaultHomePageView(apiClient: apiClient).$currentOffsetY, apiClient: apiClient)
+//        }
+//    }
+//}
 
 
 extension Color {

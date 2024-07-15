@@ -14,11 +14,11 @@ struct MasterHomePageView: View {
     @State var currentOffsetY: CGFloat = UIScreen.main.bounds.height
     @State var currentOffsetX: CGFloat = UIScreen.main.bounds.minX
     @Binding var currentDragOffset: CGFloat
-    let apiClient:APIClient
+    let apiClient = APIClient()
    
     var body: some View {
         ZStack{
-            DefaultHomePageView(apiClient: apiClient)
+            DefaultHomePageView()
                 .offset(x:UIScreen.main.bounds.minX)
             HostScreen()
                 .offset(x:UIScreen.main.bounds.minX - UIScreen.main.bounds.maxX)
@@ -57,10 +57,10 @@ struct MasterHomePageView: View {
     }
 }
 
-struct MasterHomePageView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MasterHomePageView(currentDragOffset: SupraView(apiClient: apiClient).$SwipeThruViews, apiClient: apiClient)
-        }
-    }
-}
+//struct MasterHomePageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            MasterHomePageView(currentDragOffset: SupraView(apiClient: apiClient).$SwipeThruViews, apiClient: apiClient)
+//        }
+//    }
+//}

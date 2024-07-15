@@ -11,25 +11,24 @@ import Firebase
 
 class AppState: ObservableObject {
     @Published var hasOnboarded: Bool
-    
+  
     init(hasOnboarded: Bool) {
         self.hasOnboarded = hasOnboarded
        
-            
     }
-    
 }
-
-
 
 @main
 
 struct Open_CribApp: App {
+    
+    let apiClient = APIClient()
+    
     init(){
         FirebaseApp.configure()
         //self.appState = AppState(hasOnboarded: false)
-        
     }
+    
     
     
     //@ObservedObject var appState:AppState

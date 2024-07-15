@@ -8,16 +8,10 @@
 import Foundation
 import SwiftUI
 
-
-let apiClient = APIClient()
-
 struct Feed:  View {
     @State private var searchBar: String  = ""
     @Binding var currentDragOffsetY: CGFloat
     var apiClient = APIClient()
-    
-    
-   
     
     var body: some View {
         ZStack{
@@ -65,9 +59,10 @@ struct Feed:  View {
                         .textInputAutocapitalization(.never)
                         .font(Font.custom(Fonts.tommy, size: 15))
                         .disableAutocorrection(true)
+                        .foregroundColor(.black)
                     
 
-                    FakeFeed()
+                    CribFeed()
                         .opacity(100)
                         .padding(.top,35)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
@@ -80,38 +75,38 @@ struct Feed:  View {
     }
 }
 
-struct CribFeed: View{
-    
-    @State var partyItems: [PartyModel] = []
-    var body: some View{
-        List{
-            ForEach(partyItems, id: \.id){ party in
-                ZStack(){
-                    HStack(){
-                    Image(systemName: "scribble")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 85, height: 85)
-
-
-                        VStack(alignment: .leading, spacing: 5){
-                            Text("\(party.partyName)")
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                            Text("by " + "\(party.hostUsername)")
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                            Text("\(party.address.city)")
-                                .foregroundColor(Color.cribGray)
-                                .font(Font.custom("MADETOMMY-Bold", size: 15))
-                        }
-                    }
-                }
-            }
-             
-        }
-    }
+//struct CribFeed: View{
+//
+//    @State var partyItems: [PartyModel] = []
+//    var body: some View{
+//        List{
+//            ForEach(partyItems, id: \.id){ party in
+//                ZStack(){
+//                    HStack(){
+//                    Image(systemName: "scribble")
+//                        .renderingMode(.original)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 85, height: 85)
+//
+//
+//                        VStack(alignment: .leading, spacing: 5){
+//                            Text("\(party.partyName)")
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                            Text("by " + "\(party.hostUsername)")
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                            Text("\(party.address.city)")
+//                                .foregroundColor(Color.cribGray)
+//                                .font(Font.custom("MADETOMMY-Bold", size: 15))
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+//    }
                     
-}
+//}
 struct cribPost: View,Identifiable{
     var city: String
     var hostUsername: String
@@ -122,28 +117,55 @@ struct cribPost: View,Identifiable{
         partyName = _partyName
         hostUsername = _hostUsername
         city = _city
+        
     }
     
     var body: some View {
         ZStack(){
-            HStack(){
-            Image(systemName: "scribble")
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 85, height: 85)
-
-
-                VStack(alignment: .leading, spacing: 5){
+            VStack(){
+                HStack(){
+                    Circle()
+                        .frame(width: 20, height: 20, alignment: .leading)
                     Text("\(partyName)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        .padding(.trailing,-5)
                     Text("by " + "\(hostUsername)")
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
-
-                    Text("\(city)")
-                        .foregroundColor(Color.cribGray)
-                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                    
+                    Spacer()
                 }
+                
+                Divider()
+                
+                Image(systemName:"scribble")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 100, alignment: .center)
+                    .foregroundColor(.white)
+                    .padding(.vertical, 20)
+                
+                    
+                
+                Divider()
+                
+                HStack(){
+                    Image("houseIcon")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.white)
+                        .onTapGesture {
+                            //rsvp(_partyId)
+                        }
+                    Text("\(city)")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                        
+                    Spacer()
+                }
+                HStack(){
+                    Text("Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption")
+                        .font(Font.custom("MADETOMMY-Bold", size: 15))
+                    Spacer()
+                }.padding(.vertical,10)
             }
         }
     }
@@ -157,7 +179,7 @@ struct cribPost: View,Identifiable{
 //    cribPost("Kyle's birthday bash","KyleR","Coral Gables"),
 //    cribPost("Post-Pandy Party","CarltheMAn","Kendall")]
 
-struct FakeFeed: View{
+struct CribFeed: View{
     @State var partyList: [PartyModel] = [PartyModel]()
     @State var partyArr:[cribPost] = []
     var body: some View {
@@ -187,13 +209,13 @@ struct FakeFeed: View{
 }
 
 
-struct Feed_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Feed(currentDragOffsetY: DefaultHomePageView(apiClient: apiClient).$currentOffsetY, apiClient: apiClient)
-        }
-    }
-}
+//struct Feed_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            Feed(currentDragOffsetY: DefaultHomePageView(apiClient: apiClient).$currentOffsetY, apiClient: apiClient)
+//        }
+//    }
+//}
 
 
 extension Color {

@@ -10,12 +10,14 @@ import SwiftUI
 
 struct HostScreen: View {
 
+    let apiClient = APIClient()
+    
     @State private var partyNameInput: String  = ""
     @State private var tagsInput: String  = ""
     @State private var tags: Array<String> = []
     @State private var inviteInput: String  = ""
     @State private var addressInput: String  = ""
-    @StateObject var vm = UserViewModel()
+    
     @State private var userInput=[User]()
     @State private var date = Date()
     @State private var isPrivate: Bool = false
@@ -47,6 +49,7 @@ struct HostScreen: View {
                     TextField("  Party Name",text: $partyNameInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
@@ -58,6 +61,7 @@ struct HostScreen: View {
                     TextField("  Tags",text: $tagsInput)
                         .frame(width: 350, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
@@ -107,6 +111,7 @@ struct HostScreen: View {
                     TextField("  Address",text: $addressInput)
                         .frame(width: 240, height: 35)
                         .background(.white)
+                        .foregroundColor(.black)
                         .cornerRadius(10)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("MADETOMMY-Bold", size: 15))
@@ -157,17 +162,21 @@ struct HostScreen: View {
             }.position(x: UIScreen.main.bounds.maxX/2, y: 250)
             
             HStack{
-                Button{
+                Button(action: {
                     
-                } label:{
+                    print("party sent to post")
+                    
+                }, label: {
+                    
                     Text("Let's Party")
                         .frame(width: 270, height: 60)
                         .background(Color("cribCyan"))
                         .foregroundColor(Color.white)
                         .cornerRadius(30)
                         .font(Font.custom("MADETOMMY-Bold", size: 25)).foregroundColor(.black)
-                        
-                }.position(x: 200, y: 700)
+                    
+                })
+            }.position(x: 200, y: 700)
                 
 //        .gesture(
 //            DragGesture()
@@ -190,12 +199,12 @@ struct HostScreen: View {
             }
         }
         
-    }
 }
 
 
-struct HostScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        HostScreen()
+
+    struct HostScreen_Previews: PreviewProvider {
+        static var previews: some View {
+            HostScreen()
+        }
     }
-}

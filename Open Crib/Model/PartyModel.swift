@@ -8,8 +8,8 @@
 import Foundation
 
 struct PartyModel: Codable{
-    var id: String
-    var hostId: String
+    var id: String?
+    var hostId: String?
     var comments: [commentModel]?
     var hostUsername: String
     var partyName: String

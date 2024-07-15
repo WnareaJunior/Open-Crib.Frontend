@@ -28,15 +28,34 @@ class LocalAuth{
             }
             
             
-            
-            
         })
+    }
+    func login(email: String,password: String) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            if error != nil {
+               
+                let errorMessage = error?.localizedDescription ?? "Something went wrong"
+                print(errorMessage)
+            }else{
+                print(authResult?.user.email ?? "Error getting email")
+                print(authResult?.user.uid ?? "Error getting uid")
+            }
+            
+            
+          
+            
+        }
     }
     func didUserLogin() {
         
     }
-    func logOut(){
-        
+    func signOut(){
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 
 }

@@ -49,13 +49,42 @@ class APIClient{
             return (partyInfo)
             
         }
-//    func postParty(partyInfo: PartyModel) async throws {
-//        let partyUrl = baseUrl
-//
-//
-//    }
-    
+    func postPartyInfo(partyInfo: PartyModel) async throws {
+        
+        
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
 
+        do {
+            
+            let jsonData = try encoder.encode(partyInfo)
+            
+            let apiUrl = URL(string: "https://example.com/api/parties")!
+            
+            var request = URLRequest(url: apiUrl)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("Status code: \(httpResponse.statusCode)")
+                    
+                }
+            }
+            
+            task.resume()
+        } catch {
+            print("Error encoding Party object: \(error)")
+        }
+        print("postParty executed")
+
+    }
     
 }
 

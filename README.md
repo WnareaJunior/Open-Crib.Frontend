@@ -30,7 +30,7 @@ We’re starting with a simple **MVP**: a lightweight way to connect hosts and a
 | Language          | Swift           |
 | Platform          | iOS             |
 | UI                | SwiftUI / UIKit |
-| Backend           | (Planned)       |
+| Backend           | Firebase     |
 | Deployment        | Xcode, TestFlight |
 
 ---
